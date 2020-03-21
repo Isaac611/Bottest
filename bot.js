@@ -104,6 +104,22 @@ client.on('message', function(message) {
     });
 
 
+// delete colors role
+client.on('message', message=>{
+    if (message.content === prefix + 'delete colors' || message.content === prefix + 'dcs'){
+    if(!message.channel.guild) return; 
+     for(let d = 1; d <= 2; d++)
+    { 
+       if(!guild.roles.find("name", d)) 
+           { 
+            guild.roles.find("name", d).delete();
+            } 
+
+      } 
+   } 
+  });
+
+
 // set game for bot
 client.on('ready', () => {
 client.user.setGame(`w!help`)
