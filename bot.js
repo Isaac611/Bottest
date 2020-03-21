@@ -78,7 +78,7 @@ var avt = args || message.author.id;
   client.on('message', message => {
     if (message.content == "$roll") { 
     	var roll = Math.floor(Math.random()*100)
-    message.channel.send(`roll`);
+    message.channel.send("ولكم");
     }
   });   
   
