@@ -97,7 +97,7 @@ client.on('message', function(message) {
     var colors = ['#FFB33F','#3CDE95'];
     for(let c = 1; c <= 2; c++){ 
     message.guild.createRole({name:c,
-    color:colors[c]})
+    color:colors[c-1]})
     }
     }
     }
