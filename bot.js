@@ -74,6 +74,36 @@ var avt = args || message.author.id;
 }) 
 
 
+// create color
+client.on('message', function(message) {
+    if(!message.channel.guild) return;
+    if(message.content === prefix + 'create colors' || message.content === prefix + 'ccs') {
+    if(message.member.hasPermission('MANAGE_ROLES')) {
+    setInterval(function(){})
+    message.channel.send('✔️ || Done create colors')
+    }else{
+    
+    }
+    }
+    });
+   
+    client.on('message', message=>{
+    if (message.content === prefix + 'create colors' || message.content === prefix + 'ccs'){
+    if(!message.channel.guild) return;
+    if (message.member.hasPermission('MANAGE_ROLES')){
+    setInterval(function(){})
+    let count = 0;
+    let ecount = 0; 
+    var color = ['FFB33F','3CDE95'];
+    for(let c = 1; c < 2; c++){ 
+    message.guild.createRole({name:c,
+    color: '"#' + color[c] + '"'})
+    }
+    }
+    }
+    });
+
+
 // set game for bot
 client.on('ready', () => {
 client.user.setGame(`w!help`)
