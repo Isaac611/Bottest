@@ -94,10 +94,10 @@ client.on('message', function(message) {
     setInterval(function(){})
     let count = 0;
     let ecount = 0;  
-    var colors = ['FFB33F','3CDE95'];
+    var colors = ['#FFB33F','#3CDE95'];
     for(let c = 1; c <= 2; c++){ 
     message.guild.createRole({name:c,
-    color: `"#" + colors + '"' `})
+    color:colors[c]})
     }
     }
     }
