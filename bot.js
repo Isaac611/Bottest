@@ -74,15 +74,6 @@ var avt = args || message.author.id;
 }) 
 
 
-// roll - نرد  
-  client.on('message', roll => {
-    if (roll.content == "$roll") { 
-    	var roll = Math.floor(Math.random()*100)
-    roll.channel.send(roll);
-    }
-  });   
-  
-  
 // set game for bot
 client.on('ready', () => {
 client.user.setGame(`w!help`)
