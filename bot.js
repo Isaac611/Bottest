@@ -75,18 +75,6 @@ var avt = args || message.author.id;
 
 
 // create color
-client.on('message', function(message) {
-    if(!message.channel.guild) return;
-    if(message.content === prefix + 'create colors' || message.content === prefix + 'ccs') {
-    if(message.member.hasPermission('MANAGE_ROLES')) {
-    setInterval(function(){})
-    message.channel.send('☑️ ``||`` Done create colors')
-    }else{
-    
-    }
-    }
-    });
-   
     client.on('message', message=>{
     if (message.content === prefix + 'create colors' || message.content === prefix + 'ccs'){
     if(!message.channel.guild) return;
@@ -95,7 +83,8 @@ client.on('message', function(message) {
     var colors = ['#FFB33F','#3CDE95'];
     for(let c = 1; c <= 2; c++){ 
     message.guild.createRole({name:c,
-    color:colors[c-1]})
+    color:colors[c-1]}) 
+    message.channel.send('☑️ ``||`` Done create colors')
     }
     }
     }
@@ -107,13 +96,13 @@ client.on('message', message=>{
     if (message.content === prefix + 'delete colors' || message.content === prefix + 'dcs'){
     if(!message.channel.guild) return; 
      for(let d = 1; d <= 2; d++){ 
-        guild.roles.find(r => r.name == d);
+        message.guild.roles.find(r => r.name == d);
       } 
       message.channel.send('☑️ ``||`` Done deleted colors')
    } 
   });
-
-
+    
+    
 // set game for bot
 client.on('ready', () => {
 client.user.setGame(`w!help`)
