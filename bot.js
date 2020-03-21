@@ -91,33 +91,6 @@ var avt = args || message.author.id;
     }); 
     
     
- // delete colors role
-     client.on('message', message=>{
-     if (message.content === prefix + 'delete colors' || message.content === prefix + 'dcs'){
-     if (!message.channel.guild) return;  
-     var booleanr = 0;
-     for (let ro = 1; ro <= 2; ro ++) 
-     { 
-     if (message.guild.roles.find(r => r.name == ro) 
-     {  
-     booleanr = 1;
-     } 
-     } 
-     if(booleanr == 1) 
-    {  
-	message.channel.send('rloses') 
-     } 
-     eslse 
-     {
-     for(let d = 1; d <= 2; d++){ 
-     message.guild.roles.find(r => r.name == d);
-     } 
-     message.channel.send('☑️ ``||`` Done deleted colors') 
-     } 
-     } 
-     });
-    
-    
 // set game for bot
 client.on('ready', () => {
 client.user.setGame(`w!help`)
