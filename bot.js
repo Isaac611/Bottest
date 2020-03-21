@@ -74,12 +74,6 @@ var avt = args || message.author.id;
 }) 
 
 
-// set game for bot
-client.on('ready', () => {
-client.user.setGame(`w!help`)
-});
-
-
 // top invites users
 client.on('message',message =>{
     if(message.content.startsWith(prefix + 'top inv')) {
@@ -107,6 +101,12 @@ client.on('message',message =>{
    
     }
   });
+
+
+// set game for bot
+client.on('ready', () => {
+client.user.setGame(`w!help`)
+});
 
 
 client.login(process.env.TOKEN);
