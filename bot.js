@@ -97,7 +97,7 @@ client.on('message', function(message) {
     var color = ['FFB33F','3CDE95'];
     for(let c = 1; c < 2; c++){ 
     message.guild.createRole({name:c,
-    color: '"#' + color[c] + '"'})
+    color: 'RANDOM'})
     }
     }
     }
