@@ -28,7 +28,8 @@ var prefix = "$"
 client.on("message", message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "background server") || message.content.startsWith(prefix + "bgd server")) {
+  if(message.content.startsWith(prefix + "background server") || message.content.startsWith(prefix + "bgd server") 
+   || message.content.startsWith(prefix + "خلفية السيرفر") || message.content.startsWith(prefix + "خلفيه السيرفر")) {
     let doma = new Discord.RichEmbed()
     .setColor("#FFB33F")
     .setAuthor(message.guild.name, message.guild.iconURL)
@@ -37,7 +38,8 @@ client.on("message", message => {
     .setImage(message.guild.iconURL)
     .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
     message.channel.send(doma)
-  } else if(message.content.startsWith(prefix + "background") || message.content.startsWith(prefix + "bgd")) {
+  } else if(message.content.startsWith(prefix + "background") || message.content.startsWith(prefix + "bgd") 
+              || message.content.startsWith(prefix + "خلفية") || message.content.startsWith(prefix + "خلفيه")) {
     let args = message.content.split(" ")[1]
 var avt = args || message.author.id;    
     client.fetchUser(avt).then(user => {
