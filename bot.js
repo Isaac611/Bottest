@@ -23,25 +23,7 @@ var prefix = "$"
    }
    }); 
    
-   client.on("message",message => {
-if(message.author.bot) return;
-if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "background")){
-const mention = message.mentions.users.first()
-
-if(!mention) return console.log("") 
-let embed = new Discord.RichEmbed()
-.setColor("#FFB33F")
-.setAuthor(`${mention.username}#${mention.discriminator}`,`${mention.avatarURL}`) 
-.setTitle("Avatar Link")
-.setURL(`${mention.avatarURL}`)
-.setImage(`${mention.avatarURL}`)
-.setFooter(`Requested By ${message.author.tag}`,`${message.author.avatarURL}`)    
-    message.channel.send(embed)
-}
-})
-
-
+   
 // show avatar users - and show avatar server
 client.on("message", message => {
   if(message.author.bot) return;
@@ -55,7 +37,7 @@ client.on("message", message => {
     .setImage(message.guild.iconURL)
     .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
     message.channel.send(doma)
-  } else if(message.content.startsWith(prefix + "background")) {
+  } else if(message.content.startsWith(prefix + "background") || message.content.startsWith(prefix + "bgd")) {
     let args = message.content.split(" ")[1]
 var avt = args || message.author.id;    
     client.fetchUser(avt).then(user => {
