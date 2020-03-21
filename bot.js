@@ -92,8 +92,6 @@ client.on('message', function(message) {
     if(!message.channel.guild) return;
     if (message.member.hasPermission('MANAGE_ROLES')){
     setInterval(function(){})
-    let count = 0;
-    let ecount = 0;  
     var colors = ['#FFB33F','#3CDE95'];
     for(let c = 1; c <= 2; c++){ 
     message.guild.createRole({name:c,
@@ -101,24 +99,8 @@ client.on('message', function(message) {
     }
     }
     }
-    });
-
-
-// delete colors role
-client.on('message', message=>{
-    if (message.content === prefix + 'delete colors' || message.content === prefix + 'dcs'){
-    if(!message.channel.guild) return; 
-     for(let d = 1; d <= 2; d++)
-    { 
-       if(!guild.roles.find("name", d)) 
-           { 
-            guild.roles.find("name", d).delete();
-            } 
-
-      } 
-   } 
-  });
-
+    }); 
+    
 
 // set game for bot
 client.on('ready', () => {
