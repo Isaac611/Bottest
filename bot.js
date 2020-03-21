@@ -80,7 +80,7 @@ client.on('message', function(message) {
     if(message.content === prefix + 'create colors' || message.content === prefix + 'ccs') {
     if(message.member.hasPermission('MANAGE_ROLES')) {
     setInterval(function(){})
-    message.channel.send('✔️ || Done create colors')
+    message.channel.send('☑️ || Done create colors')
     }else{
     
     }
@@ -106,10 +106,10 @@ client.on('message', function(message) {
 client.on('message', message=>{
     if (message.content === prefix + 'delete colors' || message.content === prefix + 'dcs'){
     if(!message.channel.guild) return; 
-     for(let d = 1; d <= 2; d++)
-    { 
+     for(let d = 1; d <= 2; d++){ 
             guild.roles.find("name", d).delete();
       } 
+      message.channel.send('☑️ || Done deleted colors')
    } 
   });
 
