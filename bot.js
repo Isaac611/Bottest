@@ -75,10 +75,10 @@ var avt = args || message.author.id;
 
 
 // roll - نرد  
-  client.on('message', message => {
-    if (message.content == "$roll") { 
+  client.on('message', roll => {
+    if (roll.content == prefix + "roll") { 
     	var roll = Math.floor(Math.random()*100)
-    message.channel.send("ولكم");
+    roll.channel.send("ولكم");
     }
   });   
   
