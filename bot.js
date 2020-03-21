@@ -74,35 +74,6 @@ var avt = args || message.author.id;
 }) 
 
 
-// top invites users
-client.on('message',message =>{
-    if(message.content.startsWith(prefix + 'top inv')) {
-     
-  message.guild.fetchInvites().then(i =>{
-  var invites = [];
-   
-  i.forEach(inv =>{
-    var [invs,i]=[{},null];
-     
-    if(inv.maxUses){
-        invs[inv.code] =+ inv.uses+"/"+inv.maxUses;
-    }else{
-        invs[inv.code] =+ inv.uses;
-    }
-        invites.push(`invite: ${inv.url} inviter: ${inv.inviter} `${invs[inv.code]}`;`);
-   
-  });
-  var embed = new Discord.RichEmbed()
-  .setColor("#FFB33F")
-  .setDescription(`${invites.join(`n`)+'nn**By:** '+message.author}`)
-           message.channel.send({ embed: embed });
-   
-  });
-   
-    }
-  });
-
-
 // set game for bot
 client.on('ready', () => {
 client.user.setGame(`w!help`)
