@@ -84,8 +84,8 @@ var avt = args || message.author.id;
     for(let c = 1; c <= 2; c++){ 
     message.guild.createRole({name:c,
     color:colors[c-1]}) 
+    } 
     message.channel.send('☑️ ``||`` Done create colors')
-    }
     }
     }
     }); 
