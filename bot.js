@@ -13,7 +13,7 @@ var prefix = "$"
   
   
   client.on("message", message => {
-    if (message.content === "help") {
+    if (message.content === "w!help") {
      const embed = new Discord.RichEmbed() 
          .setColor("#FFB33F")
          .setThumbnail(message.author.avatarURL)
