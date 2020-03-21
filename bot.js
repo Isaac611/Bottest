@@ -46,7 +46,7 @@ let embed = new Discord.RichEmbed()
 client.on("message", message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "background server")) {
+  if(message.content.startsWith(prefix + "background server", prefix + "bgd server")) {
     let doma = new Discord.RichEmbed()
     .setColor("#FFB33F")
     .setAuthor(message.guild.name, message.guild.iconURL)
