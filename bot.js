@@ -107,9 +107,10 @@ client.on('message', message=>{
     if (message.content === prefix + 'delete colors' || message.content === prefix + 'dcs'){
     if(!message.channel.guild) return; 
      for(let d = 1; d <= 2; d++){ 
-           message.channel.send('☑️ || Done deleted colors')
+           console.log(d)
+    guild.roles.find("name", d).delete();
       } 
-      
+      message.channel.send('☑️ || Done deleted colors')
    } 
   });
 
