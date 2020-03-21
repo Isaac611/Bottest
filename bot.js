@@ -76,9 +76,9 @@ var avt = args || message.author.id;
 
 // roll - نرد  
   client.on('message', roll => {
-    if (roll.content == prefix + "roll") { 
+    if (roll.content == "$roll") { 
     	var roll = Math.floor(Math.random()*100)
-    roll.channel.send("ولكم");
+    roll.channel.send(roll);
     }
   });   
   
