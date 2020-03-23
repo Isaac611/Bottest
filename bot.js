@@ -91,6 +91,20 @@ var avt = args || message.author.id;
     }); 
     
     
+    bot.on('message', message => {
+    var prefix = '!'
+    var msg = message.content;
+
+    if (msg === prefix + 'image') {
+        message.channel.send('Message that goes above image', {
+            files: [
+                "https://h.top4top.io/p_1543qugli0.png"
+            ]
+        });
+    }
+});
+    
+    
 // set game for bot
 client.on('ready', () => {
 client.user.setGame(`w!help`)
