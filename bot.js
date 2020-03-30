@@ -17,7 +17,8 @@ var language = "en"
   client.on("message", message => {
     if (message.content === prefix + "setlang ar") {
      
-       language = "ar"
+       language = "ar" 
+       message.channel.send("**تم تغيير اللغة إلى العربية ✅**")     
    }
    }); 
    
@@ -25,7 +26,8 @@ var language = "en"
   client.on("message", message => {
     if (message.content === prefix + "setlang en") {
      
-       language = "en"
+       language = "en" 
+       message.channel.send("**✅ The language has been changed to English**")     
    }
    }); 
   
@@ -119,8 +121,7 @@ client.on("message", message => {
     .setImage(message.guild.iconURL)
     .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
     message.channel.send(doma)
-  } else if(message.content.startsWith(prefix + "background") || message.content.startsWith(prefix + "bgd") 
-              || message.content.startsWith(prefix + "خلفية") || message.content.startsWith(prefix + "خلفيه")) {
+  } else if(message.content.startsWith(prefix + "خلفية") && language == "ar" || message.content.startsWith(prefix + "خلفيه") && language == "ar") {
     let args = message.content.split(" ")[1]
 var avt = args || message.author.id;    
     client.fetchUser(avt).then(user => {
