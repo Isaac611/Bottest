@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "$" 
 var language = "en" 
-var avatar = "true"
+var avatar = "activate"
   
   
   // help 
@@ -43,16 +43,8 @@ var avatar = "true"
    client.on("message", message => {
     if (message.content === prefix + "close avatar") {
      
-       avatar = "false" 
-            if(language == en) 
-       {
-       message.channel.send("**✅ It's been successfully canceled.**")      
-       } 
-       
-            else if(language == ar) 
-       {
-        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")      
-       }  
+       avatar = "colse" 
+            
    }
    }); 
    
@@ -60,16 +52,8 @@ var avatar = "true"
    client.on("message", message => {
     if (message.content === prefix + "activate avatar") {
      
-       avatar = "true" 
-       if(language == en) 
-       {
-       message.channel.send("**✅ It's successfully activated.**")      
-       } 
-       
-       else if(language == ar) 
-       {
-       message.channel.send("**تم تفعيله بنجاح ✅**")      
-       } 
+       avatar = "activate" 
+
    }
    }); 
    
@@ -95,7 +79,7 @@ let embed = new Discord.RichEmbed()
 client.on("message", message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "background server") && language == "en" && avatar == "true" || message.content.startsWith(prefix + "bgd server") && language == "en" && avatar == "true") {
+  if(message.content.startsWith(prefix + "background server") && language == "en" && avatar == "activate" || message.content.startsWith(prefix + "bgd server") && language == "en" && avatar == "activate") {
     let doma = new Discord.RichEmbed()
     .setColor("#FFB33F")
     .setAuthor(message.guild.name, message.guild.iconURL)
@@ -104,7 +88,7 @@ client.on("message", message => {
     .setImage(message.guild.iconURL)
     .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
     message.channel.send(doma)
-  } else if(message.content.startsWith(prefix + "background") && language == "en" && avatar == "true" || message.content.startsWith(prefix + "bgd") && language == "en" && avatar == "true") {
+  } else if(message.content.startsWith(prefix + "background") && language == "en" && avatar == "activate" || message.content.startsWith(prefix + "bgd") && language == "en" && avatar == "activate") {
     let args = message.content.split(" ")[1]
 var avt = args || message.author.id;    
     client.fetchUser(avt).then(user => {
@@ -142,7 +126,7 @@ let embed = new Discord.RichEmbed()
 client.on("message", message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "خلفية السيرفر") && language == "ar" && avatar == "true" || message.content.startsWith(prefix + "خلفيه السيرفر") && language == "ar" && avatar == "true") {
+  if(message.content.startsWith(prefix + "خلفية السيرفر") && language == "ar" && avatar == "activate" || message.content.startsWith(prefix + "خلفيه السيرفر") && language == "ar" && avatar == "activate") {
     let doma = new Discord.RichEmbed()
     .setColor("#FFB33F")
     .setAuthor(message.guild.name, message.guild.iconURL)
@@ -151,7 +135,7 @@ client.on("message", message => {
     .setImage(message.guild.iconURL)
     .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
     message.channel.send(doma)
-  } else if(message.content.startsWith(prefix + "خلفية") && language == "ar" && avatar == "true" || message.content.startsWith(prefix + "خلفيه") && language == "ar" && avatar == "true") {
+  } else if(message.content.startsWith(prefix + "خلفية") && language == "ar" && avatar == "activate" || message.content.startsWith(prefix + "خلفيه") && language == "ar" && avatar == "activate") {
     let args = message.content.split(" ")[1]
 var avt = args || message.author.id;    
     client.fetchUser(avt).then(user => {
