@@ -45,14 +45,14 @@ var avatar = "true"
        
         	avatar = "false" 
          
-            if(language === en) 
+            if(language == en) 
        {
        message.channel.send("**✅ It's been successfully canceled.**")      
        } 
        
-            if(language === ar) 
+            if(language == ar) 
        {
-       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")      
+       
        }  
        
    }
