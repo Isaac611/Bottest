@@ -1,6 +1,8 @@
+const fs = require('fs');
 const Discord = require('discord.js');
-const client = new Discord.Client();
-var prefix = "$" 
+const client = new Discord.Client({ disableEveryone: true });
+const config = require("./config");
+const prefix = config.prefix;
 var language = "en" 
 var avatar = "activate"
   
@@ -84,6 +86,64 @@ var avatar = "activate"
 
    }
    }); 
+   
+   
+   // mute
+   client.commands = new Discord.Collection();
+
+client.muted = require('./muted.json');
+
+fs.readdir('./cmds/', (err, files) => {
+    if (err) console.error(err);
+    const jsFiles = files.filter(f => f.split('.').pop() === 'js');
+    if (jsFiles.length <= 0) return console.log('No command files found!');
+    jsFiles.forEach((f, i) => {
+        const props = require(`./cmds/${f}`);
+        console.log(`${i + 1}: ${f} loaded!`);
+        client.commands.set(props.help.name, props);
+    });
+})
+
+client.on('ready', async () => {
+    console.log(`${client.user.username} is ready!`);
+
+    // Every 5 seconds check the "muted.json" file to see when a users mute is up
+    client.setInterval(() => {
+        for (const i in client.muted) {
+            const time = client.muted[i].time;
+            const guildId = client.muted[i].guild;
+            const guild = client.guilds.get(guildId);
+            const member = guild.members.get(i);
+            const mutedRole = guild.roles.find(mR => mR.name === 'Muted');
+            if (!mutedRole) continue;
+
+            if (Date.now() > time) {
+                member.removeRole(mutedRole);
+                delete client.muted[i];
+                fs.writeFile('./muted.json', JSON.stringify(client.muted), err => {
+                    if(err) throw err;
+                });
+            }
+        }
+    }, 5000);
+});
+
+client.on('message', async message => {
+    // Validate that the user can only message the bot within a channel on the server
+    if (message.author.client) return;
+    if (message.channel.type === 'dm') return;
+
+    const messageArray = message.content.split(' ');
+    const command = messageArray[0];
+    const args = messageArray.slice(1);
+
+    if (!command.startsWith(prefix)) return;
+
+    const cmd = client.commands.get(command.slice(prefix.length));
+    if (cmd) cmd.run(client, message, args);
+});
+
+   
    
    
 // show avatar users - and show avatar server en 
