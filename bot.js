@@ -44,6 +44,15 @@ var avatar = "true"
     if (message.content === prefix + "close avatar") {
        
         	avatar = "false" 
+            if(language == en) 
+       {
+       message.channel.send("**✅ It's been successfully canceled.**")      
+       } 
+       
+            if(language == ar) 
+       {
+        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")      
+       }  
          
    }
    }); 
@@ -52,15 +61,22 @@ var avatar = "true"
    client.on("message", message => {
     if (message.content === prefix + "activate avatar") {
        
-       avatar = "true"
+       avatar = "true" 
+       if(language == en) 
+       {
+       message.channel.send("**✅ It's successfully activated.**")      
+       } 
+       
+       if(language == ar) 
+       {
+       message.channel.send("**تم تفعيله بنجاح ✅**")      
+       } 
        
    }
    }); 
    
    
 // show avatar users - and show avatar server en 
-if(avatar == "true")
-{
       client.on("message",message => {
 if(message.author.bot) return;
 if(!message.content.startsWith(prefix)) return;
@@ -81,7 +97,7 @@ let embed = new Discord.RichEmbed()
 client.on("message", message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "background server") && language == "en" || message.content.startsWith(prefix + "bgd server") && language == "en") {
+  if(message.content.startsWith(prefix + "background server") && language == "en" && avatar == "true" || message.content.startsWith(prefix + "bgd server") && language == "en" && avatar == "true") {
     let doma = new Discord.RichEmbed()
     .setColor("#FFB33F")
     .setAuthor(message.guild.name, message.guild.iconURL)
@@ -90,7 +106,7 @@ client.on("message", message => {
     .setImage(message.guild.iconURL)
     .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
     message.channel.send(doma)
-  } else if(message.content.startsWith(prefix + "background") && language == "en" || message.content.startsWith(prefix + "bgd") && language == "en") {
+  } else if(message.content.startsWith(prefix + "background") && language == "en" && avatar == "true" || message.content.startsWith(prefix + "bgd") && language == "en" && avatar == "true") {
     let args = message.content.split(" ")[1]
 var avt = args || message.author.id;    
     client.fetchUser(avt).then(user => {
@@ -106,10 +122,8 @@ var avt = args || message.author.id;
     })
   }
 }) 
-} 
+
 // show avatar users - and show avatar server ar 
-if(avatar == "true") 
-{
       client.on("message",message => {
 if(message.author.bot) return;
 if(!message.content.startsWith(prefix)) return;
@@ -130,7 +144,7 @@ let embed = new Discord.RichEmbed()
 client.on("message", message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "خلفية السيرفر") && language == "ar" || message.content.startsWith(prefix + "خلفيه السيرفر") && language == "ar") {
+  if(message.content.startsWith(prefix + "خلفية السيرفر") && language == "ar" && avatar == "true" || message.content.startsWith(prefix + "خلفيه السيرفر") && language == "ar" && avatar == "true") {
     let doma = new Discord.RichEmbed()
     .setColor("#FFB33F")
     .setAuthor(message.guild.name, message.guild.iconURL)
@@ -139,7 +153,7 @@ client.on("message", message => {
     .setImage(message.guild.iconURL)
     .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
     message.channel.send(doma)
-  } else if(message.content.startsWith(prefix + "خلفية") && language == "ar" || message.content.startsWith(prefix + "خلفيه") && language == "ar") {
+  } else if(message.content.startsWith(prefix + "خلفية") && language == "ar" && avatar == "true" || message.content.startsWith(prefix + "خلفيه") && language == "ar" && avatar == "true") {
     let args = message.content.split(" ")[1]
 var avt = args || message.author.id;    
     client.fetchUser(avt).then(user => {
@@ -155,7 +169,7 @@ var avt = args || message.author.id;
     })
   }
 }) 
-} 
+
     
 // set game for bot
 client.on('ready', () => {
