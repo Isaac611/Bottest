@@ -43,8 +43,17 @@ var avatar = "activate"
    client.on("message", message => {
     if (message.content === prefix + "close avatar") {
      
-       avatar = "colse" 
-            
+       avatar = "colse"  
+       if(language == en) 
+       {
+       message.channel.send("**✅ It's been successfully canceled.**")      
+       } 
+       
+       if(language == ar) 
+       {
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**") 
+       }  
+       
    }
    }); 
    
@@ -53,6 +62,15 @@ var avatar = "activate"
     if (message.content === prefix + "activate avatar") {
      
        avatar = "activate" 
+       if(language == en) 
+       {
+       message.channel.send("**✅ It's successfully activated.**")      
+       } 
+       
+       if(language == ar) 
+       {
+       message.channel.send("**تم تفعيله بنجاح ✅**") 
+       }  
 
    }
    }); 
