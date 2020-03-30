@@ -41,12 +41,31 @@ var avatar = "true"
    
    // colse order 
    client.on("message", message => {
-    if (message.content === prefix + "close avatar" || message.content === prefix + "activate avatar") {
-        if(message.content === prefix + "activate avatar") 
-        {
-       avatar = "true"  
+    if (message.content === prefix + "close avatar") {
        
+        	avatar = "false" 
+         
             if(language == en) 
+       {
+       message.channel.send("**✅ It's been successfully canceled.**")      
+       } 
+       
+            if(language == ar) 
+       {
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")      
+       }  
+       
+   }  
+   }
+   }); 
+   
+   // Activate order 
+   client.on("message", message => {
+    if (message.content === prefix + "activate avatar") {
+       
+       avatar = "true"
+       
+       if(language == en) 
        {
        message.channel.send("**✅ It's successfully activated.**")      
        } 
@@ -56,23 +75,7 @@ var avatar = "true"
        message.channel.send("**تم تفعيله بنجاح ✅**")      
        } 
        
-        } 
-        else 
-        { 
-        	avatar = "false" 
-         
-            if(language == en) 
-       {
-       message.channel.send("**✅ It's been successfully canceled.**")      
-       } 
-       
-       if(language == ar) 
-       {
-       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")      
-       }  
-       
-         }  
-        
+   } 
    }
    }); 
    
