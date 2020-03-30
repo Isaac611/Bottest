@@ -1,16 +1,23 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "$" 
-var language = "en"
-
-
-  client.on('message', msg => {
-    if(msg.content === 'w!help') 
-    
-    msg.react('✅')
-       .then(() => msg.react('✅')) 
-       
-  }); 
+var language = "en" 
+var avatar = "true"
+  
+  
+  // help 
+  client.on("message", message => {
+    if (message.content === "w!help") { 
+    	message.react('✅')
+       .then(() => message.react('✅')) 
+     const embed = new Discord.RichEmbed() 
+         .setColor("#FFB33F")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`Help message`)
+   message.author.sendEmbed(embed)
+   
+   }
+   }); 
   
   
   // setlang ar
@@ -30,21 +37,49 @@ var language = "en"
        message.channel.send("**✅ The language has been changed to English**")     
    }
    }); 
-  
-  
-  client.on("message", message => {
-    if (message.content === "w!help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#FFB33F")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`Help message`)
-   message.author.sendEmbed(embed)
    
+   
+   // colse order 
+   client.on("message", message => {
+    if (message.content === prefix + "close avatar" || message.content === prefix + "activate avatar") {
+        if(message.content === prefix + "activate avatar") 
+        {
+       avatar = "true"  
+       
+            if(language == en) 
+       {
+       message.channel.send("**✅ It's successfully activated.**")      
+       } 
+       
+       if(language == ar) 
+       {
+       message.channel.send("**تم تفعيله بنجاح ✅**")      
+       } 
+       
+        } 
+        else 
+        { 
+        	avatar = "false" 
+         
+            if(language == en) 
+       {
+       message.channel.send("**✅ It's been successfully canceled.**")      
+       } 
+       
+       if(language == ar) 
+       {
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")      
+       }  
+       
+         }  
+        
    }
    }); 
    
    
-// show avatar users - and show avatar server en
+// show avatar users - and show avatar server en 
+if(avatar == "true")
+{
       client.on("message",message => {
 if(message.author.bot) return;
 if(!message.content.startsWith(prefix)) return;
@@ -90,8 +125,10 @@ var avt = args || message.author.id;
     })
   }
 }) 
-
-// show avatar users - and show avatar server ar
+} 
+// show avatar users - and show avatar server ar 
+if(avatar == "true") 
+{
       client.on("message",message => {
 if(message.author.bot) return;
 if(!message.content.startsWith(prefix)) return;
@@ -137,7 +174,7 @@ var avt = args || message.author.id;
     })
   }
 }) 
-    
+} 
     
 // set game for bot
 client.on('ready', () => {
