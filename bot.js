@@ -45,16 +45,6 @@ var avatar = "true"
        
         	avatar = "false" 
          
-            if(language == en) 
-       {
-       message.channel.send("**✅ It's been successfully canceled.**")      
-       } 
-       
-            if(language == ar) 
-       {
-       
-       }  
-       
    }
    }); 
    
@@ -63,16 +53,6 @@ var avatar = "true"
     if (message.content === prefix + "activate avatar") {
        
        avatar = "true"
-       
-       if(language == en) 
-       {
-       message.channel.send("**✅ It's successfully activated.**")      
-       } 
-       
-       if(language == ar) 
-       {
-       message.channel.send("**تم تفعيله بنجاح ✅**")      
-       } 
        
    }
    }); 
