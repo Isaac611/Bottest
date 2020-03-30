@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "$" 
+var language = "en"
 
 
   client.on('message', msg => {
@@ -9,7 +10,24 @@ var prefix = "$"
     msg.react('✅')
        .then(() => msg.react('✅')) 
        
-  });
+  }); 
+  
+  
+  // setlang ar
+  client.on("message", message => {
+    if (message.content === prefix + "setlang ar") {
+     
+       language = "ar"
+   }
+   }); 
+   
+     // setlang en
+  client.on("message", message => {
+    if (message.content === prefix + "setlang en") {
+     
+       language = "en"
+   }
+   }); 
   
   
   client.on("message", message => {
@@ -24,7 +42,7 @@ var prefix = "$"
    }); 
    
    
-// show avatar users - and show avatar server
+// show avatar users - and show avatar server en
       client.on("message",message => {
 if(message.author.bot) return;
 if(!message.content.startsWith(prefix)) return;
@@ -45,8 +63,54 @@ let embed = new Discord.RichEmbed()
 client.on("message", message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "background server") || message.content.startsWith(prefix + "bgd server") 
-   || message.content.startsWith(prefix + "خلفية السيرفر") || message.content.startsWith(prefix + "خلفيه السيرفر")) {
+  if(message.content.startsWith(prefix + "background server") && language == "en" || message.content.startsWith(prefix + "bgd server") && language == "en") {
+    let doma = new Discord.RichEmbed()
+    .setColor("#FFB33F")
+    .setAuthor(message.guild.name, message.guild.iconURL)
+    .setTitle("Avatar Link")
+    .setURL(message.guild.iconURL)
+    .setImage(message.guild.iconURL)
+    .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
+    message.channel.send(doma)
+  } else if(message.content.startsWith(prefix + "background") && language == "en" || message.content.startsWith(prefix + "bgd") && language == "en") {
+    let args = message.content.split(" ")[1]
+var avt = args || message.author.id;    
+    client.fetchUser(avt).then(user => {
+     avt = user;
+  let embed = new Discord.RichEmbed() 
+  .setColor("#FFB33F")
+  .setAuthor(`${avt.tag}`, avt.avatarURL)
+  .setTitle("Avatar Link")
+  .setURL(avt.avatarURL)
+  .setImage(avt.avatarURL)
+  .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
+  message.channel.send(embed) 
+    })
+  }
+}) 
+
+// show avatar users - and show avatar server ar
+      client.on("message",message => {
+if(message.author.bot) return;
+if(!message.content.startsWith(prefix)) return;
+  if(message.content.startsWith(prefix + "background")){
+const mention = message.mentions.users.first()
+
+if(!mention) return console.log("") 
+let embed = new Discord.RichEmbed()
+.setColor("BLACK")
+.setAuthor(`${mention.username}#${mention.discriminator}`,`${mention.avatarURL}`) 
+.setTitle("Avatar Link")
+.setURL(`${mention.avatarURL}`)
+.setImage(`${mention.avatarURL}`)
+.setFooter(`Requested By ${message.author.tag}`,`${message.author.avatarURL}`)    
+    message.channel.send(embed)
+}
+}) 
+client.on("message", message => {
+  if(message.author.bot) return;
+  if(!message.content.startsWith(prefix)) return;
+  if(message.content.startsWith(prefix + "خلفية السيرفر") && language == "ar" || message.content.startsWith(prefix + "خلفيه السيرفر") && language == "ar") {
     let doma = new Discord.RichEmbed()
     .setColor("#FFB33F")
     .setAuthor(message.guild.name, message.guild.iconURL)
@@ -72,37 +136,6 @@ var avt = args || message.author.id;
     })
   }
 }) 
-
-
-// create color
-    client.on('message', message=>{
-    if (message.content === prefix + 'create colors' || message.content === prefix + 'ccs'){
-    if(!message.channel.guild) return;
-    if (message.member.hasPermission('MANAGE_ROLES')){
-    setInterval(function(){})
-    var colors = ['#FFB33F','#3CDE95'];
-    for(let c = 1; c <= 2; c++){ 
-    message.guild.createRole({name:c,
-    color:colors[c-1]}) 
-    } 
-    message.channel.send('☑️ ``||`` Done create colors')
-    }
-    }
-    }); 
-    
-    
-    bot.on('message', message => {
-    var prefix = '!'
-    var msg = message.content;
-
-    if (msg === prefix + 'image') {
-        message.channel.send('Message that goes above image', {
-            files: [
-                "https://h.top4top.io/p_1543qugli0.png"
-            ]
-        });
-    }
-});
     
     
 // set game for bot
