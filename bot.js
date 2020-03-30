@@ -39,38 +39,48 @@ var avatar = "activate"
    }); 
    
    
-   // colse order 
+   // colse avatar
    client.on("message", message => {
-    if (message.content === prefix + "close avatar") {
+    if (message.content === prefix + "close avatar" && language == "en") {
      
-       avatar = "colse"  
-       if(language == en) 
-       {
-       message.channel.send("**✅ It's been successfully canceled.**")      
-       } 
+       avatar = "colse" 
+       message.channel.send("**✅ The order was successfully cancelled.**")     
        
-       if(language == ar) 
-       {
-       message.channel.send("**تم إيقاف الأمر بنجاح ✅**") 
-       }  
-       
+            
    }
    }); 
    
+   
+   client.on("message", message => {
+    if (message.content === prefix + "close avatar" && language == "ar") {
+     
+       avatar = "colse" 
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
+       
+            
+   }
+   }); 
+   
+   
+   
+   
    // Activate order 
    client.on("message", message => {
-    if (message.content === prefix + "activate avatar") {
+    if (message.content === prefix + "activate avatar" && language == "en") {
      
        avatar = "activate" 
-       if(language == en) 
-       {
-       message.channel.send("**✅ It's successfully activated.**")      
-       } 
+       message.channel.send("**✅ It's successfully activated.**")     
        
-       if(language == ar) 
-       {
-       message.channel.send("**تم تفعيله بنجاح ✅**") 
-       }  
+
+   }
+   }); 
+   
+   client.on("message", message => {
+    if (message.content === prefix + "activate avatar" && language == "ar") {
+     
+       avatar = "activate" 
+       message.channel.send("**تم تفعيله بنجاح ✅**")     
+       
 
    }
    }); 
