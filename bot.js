@@ -49,7 +49,7 @@ var avatar = "true"
        message.channel.send("**✅ It's been successfully canceled.**")      
        } 
        
-            if(language == ar) 
+            else if(language == ar) 
        {
         message.channel.send("**تم إيقاف الأمر بنجاح ✅**")      
        }  
@@ -66,7 +66,7 @@ var avatar = "true"
        message.channel.send("**✅ It's successfully activated.**")      
        } 
        
-       if(language == ar) 
+       else if(language == ar) 
        {
        message.channel.send("**تم تفعيله بنجاح ✅**")      
        } 
