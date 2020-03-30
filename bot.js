@@ -55,7 +55,6 @@ var avatar = "true"
        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")      
        }  
        
-   }  
    }
    }); 
    
@@ -75,7 +74,6 @@ var avatar = "true"
        message.channel.send("**تم تفعيله بنجاح ✅**")      
        } 
        
-   } 
    }
    }); 
    
