@@ -549,7 +549,7 @@ client.on("message", message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "say" && message.guild.member(message.author.id).roles.find(role => role.name == saym)) && say == "activate" || message.member.hasPermission('ADMINISTRATOR') && say == "activate") {
+  if (command == "say") { // && message.guild.member(message.author.id).roles.find(role => role.name == saym)) && say == "activate" || message.member.hasPermission('ADMINISTRATOR') && say == "activate") {
 
     message.channel.sendMessage(args.join("  "));
     message.delete(); 
