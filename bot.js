@@ -543,18 +543,17 @@ client.on('message', message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-  if(message.guild.member(message.author.id).roles.find(role => role.name == saym)) && say == "activate" || message.member.hasPermission('ADMINISTRATOR') && say == "activate")
-      {
+      
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "say") {
+  if (command == "say" && message.guild.member(message.author.id).roles.find(role => role.name == saym)) && say == "activate" || message.member.hasPermission('ADMINISTRATOR') && say == "activate") {
 
     message.channel.sendMessage(args.join("  "));
     message.delete(); 
-  } 
+  
   }
 });  
 
