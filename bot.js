@@ -671,6 +671,15 @@ client.on("message", message => {
   }} 
 });  
 
+
+// delete links 
+if (message.content.includes('discord.gg/') || message.content.includes('discordapp.com/invite/')) { //if it contains an invite link
+  if (!message.member.hasPermission("KICK_MEMBERS")) {
+    message.delete() //delete the message
+
+  }
+} 
+
    
 // show avatar users - and show avatar server en 
       client.on("message",message => {
