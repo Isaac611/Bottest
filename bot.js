@@ -7,7 +7,9 @@ var language = "en"
 var avatar = "activate" 
 var ban = "activate" 
 var kick = "activate" 
-var ban = "activate"
+var ban = "activate" 
+var banm = "Management" 
+var kickm = "Management"
   
   
   // help 
@@ -330,7 +332,8 @@ client.on('message', message => {
    // ban en
    client.on('message', message => {
   // Ignore messages that aren't from a guild
-  if (!message.guild) return;
+  if (!message.guild) return; 
+  if (!message.guild.member(message.author.id).roles.find(role => role.name == banm)) return;
 
   // If the message content starts with "kick"
   if (message.content.startsWith(prefix + 'ban') && language == "en" && ban == "activate") {
@@ -377,7 +380,8 @@ client.on('message', message => {
    // ban ar
    client.on('message', message => {
   // Ignore messages that aren't from a guild
-  if (!message.guild) return;
+  if (!message.guild) return; 
+  if (!message.guild.member(message.author.id).roles.find(role => role.name == banm)) return;
 
   // If the message content starts with "kick"
   if (message.content.startsWith(prefix + 'حظر') && language == "ar" && ban == "activate") {
@@ -420,6 +424,25 @@ client.on('message', message => {
   }
 }); 
 
+
+// say
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == prefix + "say") {
+    if(!message.guild.member(message.author.id).roles.find(role => role.name == saym))
+      return;
+
+    message.channel.sendMessage(args.join("  "));
+    message.delete();
+  }
+});  
 
    
 // show avatar users - and show avatar server en 
