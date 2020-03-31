@@ -241,7 +241,8 @@ client.on('message', async message => {
   if (!message.guild) return;
 
   // If the message content starts with "kick"
-  if (message.content.startsWith(prefix + 'kick') && language == "en" && kick == "activate") {
+  if (message.content.startsWith(prefix + 'kick') && language == "en" && kick == "activate") { 
+  	  	if (message.member.roles.some(role => role.name === kickm)) {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -279,7 +280,7 @@ client.on('message', async message => {
       message.channel.send("**:thinking: You didn't mention the user to kick!**");
     }
   }
-});
+}});
 
 
 // kick ar
@@ -288,7 +289,8 @@ client.on('message', message => {
   if (!message.guild) return;
 
   // If the message content starts with "kick"
-  if (message.content.startsWith(prefix + 'طرد') && language == "ar" && kick == "activate") {
+  if (message.content.startsWith(prefix + 'طرد') && language == "ar" && kick == "activate") { 
+  	  	if (message.member.roles.some(role => role.name === kickm)) {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -326,7 +328,7 @@ client.on('message', message => {
       message.channel.send("**:thinking: لم تقم بذكر العضو أو منشنته**");
     }
   }
-});
+}});
    
    
    // ban en
