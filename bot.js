@@ -7,7 +7,7 @@ var language = "en"
 var avatar = "activate" 
 var ban = "activate" 
 var kick = "activate" 
-var ban = "activate" 
+var say = "activate" 
 var banm = "Management" 
 var kickm = "Management" 
 var saym = "Management"
@@ -21,8 +21,9 @@ var saym = "Management"
      const embed = new Discord.RichEmbed() 
          .setColor("#FFB33F")
          .setThumbnail(message.author.avatarURL)
-         .setDescription(`Help message`)
-   message.author.sendEmbed(embed)
+         .setDescription(`help message`)
+   message.author.sendEmbed(embed) 
+   message.author.send("")
    
    }
    }); 
@@ -70,12 +71,44 @@ var saym = "Management"
    }); 
    
    
+   
+   // close all order en
+   client.on("message", message => {
+    if (message.content === prefix + "close all" && language == "en") {
+     
+       avatar = "colse" 
+       say = "colse" 
+       ban = "colse" 
+       kick = "colse" 
+       kick = "colse" 
+       message.channel.send("**✅ All orders are closed**")     
+       
+            
+   }
+   }); 
+   
+    // close all order ar
+   client.on("message", message => {
+    if (message.content === prefix + "close all" && language == "ar") {
+     
+       avatar = "colse" 
+       say = "colse" 
+       ban = "colse" 
+       kick = "colse" 
+       kick = "colse" 
+       message.channel.send("**تم إغلاق كل الأوامر ✅**")     
+       
+            
+   }
+   }); 
+   
+   
    // colse kick
    client.on("message", message => {
     if (message.content === prefix + "close kick" && language == "en") {
      
        kick = "colse" 
-       message.channel.send("**✅ The order was successfully cancelled.**")     
+       message.channel.send("**✅ The command was closed.**")     
        
             
    }
@@ -97,7 +130,7 @@ var saym = "Management"
     if (message.content === prefix + "close ban" && language == "en") {
      
        ban = "colse" 
-       message.channel.send("**✅ The order was successfully cancelled.**")     
+       message.channel.send("**✅ The command was closed.**")     
        
             
    }
@@ -115,6 +148,61 @@ var saym = "Management"
    }); 
    
    
+   // colse say en
+   client.on("message", message => {
+    if (message.content === prefix + "close say" && language == "en") {
+     
+       say = "colse" 
+       message.channel.send("**✅ The command was closed.**")     
+       
+            
+   }
+   });  
+   
+   
+   // close say ar
+   client.on("message", message => {
+    if (message.content === prefix + "close say" && language == "ar") {
+     
+       say = "colse" 
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
+       
+            
+   }
+   }); 
+   
+   
+   // Activate all order en
+   client.on("message", message => {
+    if (message.content === prefix + "activate all" && language == "en") {
+     
+       avatar = "activate" 
+       say = "activate" 
+       ban = "activate" 
+       kick = "activate" 
+       kick = "activate" 
+       message.channel.send("**✅ All orders are activated**")     
+       
+
+   }
+   }); 
+   
+      // Activate all order ar
+   client.on("message", message => {
+    if (message.content === prefix + "activate all" && language == "ar") {
+     
+       avatar = "activate" 
+       say = "activate" 
+       ban = "activate" 
+       kick = "activate" 
+       kick = "activate" 
+       message.channel.send("**تم تفعيل كل الأوامر ✅**")     
+       
+
+   }
+   }); 
+   
+   
    // Activate order 
    client.on("message", message => {
     if (message.content === prefix + "activate avatar" && language == "en") {
@@ -125,6 +213,7 @@ var saym = "Management"
 
    }
    }); 
+   
    
    client.on("message", message => {
     if (message.content === prefix + "activate avatar" && language == "ar") {
@@ -178,7 +267,29 @@ var saym = "Management"
        
 
    }
-   }); 
+   });  
+   
+   // activate say en
+   client.on("message", message => {
+    if (message.content === prefix + "activate say" && language == "en") {
+     
+       say = "activate" 
+       message.channel.send("**✅ It's successfully activated.**")     
+       
+
+   }
+   });   
+   
+   // activate say ar
+   client.on("message", message => {
+    if (message.content === prefix + "activate say" && language == "ar") {
+     
+       say = "activate" 
+       message.channel.send("**تم تفعيله بنجاح ✅**")     
+       
+
+   }
+   });  
    
    // mute
    client.commands = new Discord.Collection();
@@ -243,7 +354,7 @@ client.on('message', async message => {
 
   // If the message content starts with "kick"
   if (message.content.startsWith(prefix + 'kick') && language == "en" && kick == "activate") { 
-  	  	if (message.member.roles.some(role => role.name === kickm)) {
+  	  	if (message.member.roles.some(role => role.name === kickm) || message.member.hasPermission('KICK_MEMBERS')) {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -291,7 +402,7 @@ client.on('message', message => {
 
   // If the message content starts with "kick"
   if (message.content.startsWith(prefix + 'طرد') && language == "ar" && kick == "activate") { 
-  	  	if (message.member.roles.some(role => role.name === kickm)) {
+  	  	if (message.member.roles.some(role => role.name === kickm) || message.member.hasPermission('KICK_MEMBERS')) {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -339,7 +450,7 @@ client.on('message', message => {
 
   // If the message content starts with "kick"
   if (message.content.startsWith(prefix + 'ban') && language == "en" && ban == "activate") { 
-  	 	if (message.member.roles.some(role => role.name === banm)) {
+  	 	if (message.member.roles.some(role => role.name === banm) || message.member.hasPermission('BAN_MEMBERS')) {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -387,7 +498,7 @@ client.on('message', message => {
 
   // If the message content starts with "kick"
   if (message.content.startsWith(prefix + 'حظر') && language == "ar" && ban == "activate") { 
-  	if (message.member.roles.some(role => role.name === banm)) {
+  	if (message.member.roles.some(role => role.name === banm || message.member.hasPermission('BAN_MEMBERS'))) {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -439,7 +550,7 @@ client.on("message", message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "say") {
-    if(!message.guild.member(message.author.id).roles.find(role => role.name == saym))
+    if(!message.guild.member(message.author.id).roles.find(role => role.name == saym) && say == "activate"|| message.member.hasPermission('ADMINISTRATOR') && say == "activate")
       return;
 
     message.channel.sendMessage(args.join("  "));
@@ -486,6 +597,81 @@ client.on("message", message => {
   }} 
 });  
    
+   
+   // set kick en
+   client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if (message.member.hasPermission('ADMINISTRATOR'))  {
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setkick" && language == "en") {
+
+
+    kickm = args.join("  ")
+    message.channel.sendMessage("✅ done successfully");
+  }} 
+});  
+
+
+// set kick ar 
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if (message.member.hasPermission('ADMINISTRATOR')) {
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setkick" && language == "ar") {
+      
+
+    kickm = args.join("  ")
+    message.channel.sendMessage("تم بنجاح ✅");
+  }} 
+});   
+
+
+// set ban en 
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if (message.member.hasPermission('ADMINISTRATOR'))  {
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setban" && language == "en") {
+
+
+    banm = args.join("  ")
+    message.channel.sendMessage("✅ done successfully");
+  }} 
+});  
+
+// set ban ar
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if (message.member.hasPermission('ADMINISTRATOR')) {
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setban" && language == "ar") {
+      
+
+    banm = args.join("  ")
+    message.channel.sendMessage("تم بنجاح ✅");
+  }} 
+});  
+
    
 // show avatar users - and show avatar server en 
       client.on("message",message => {
