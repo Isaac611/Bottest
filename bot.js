@@ -4,7 +4,10 @@ const client = new Discord.Client({ disableEveryone: true });
 const config = require("./config");
 const prefix = config.prefix;
 var language = "en" 
-var avatar = "activate"
+var avatar = "activate" 
+var ban = "activate" 
+var kick = "activate" 
+var ban = "activate"
   
   
   // help 
@@ -64,6 +67,49 @@ var avatar = "activate"
    }); 
    
    
+   // colse kick
+   client.on("message", message => {
+    if (message.content === prefix + "close kick" && language == "en") {
+     
+       kick = "colse" 
+       message.channel.send("**✅ The order was successfully cancelled.**")     
+       
+            
+   }
+   }); 
+   
+   
+   client.on("message", message => {
+    if (message.content === prefix + "close kick" && language == "ar") {
+     
+       kick = "colse" 
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
+       
+            
+   }
+   });  
+   
+   // colse ban
+   client.on("message", message => {
+    if (message.content === prefix + "close ban" && language == "en") {
+     
+       ban = "colse" 
+       message.channel.send("**✅ The order was successfully cancelled.**")     
+       
+            
+   }
+   }); 
+   
+   
+   client.on("message", message => {
+    if (message.content === prefix + "close ban" && language == "ar") {
+     
+       ban = "colse" 
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
+       
+            
+   }
+   }); 
    
    
    // Activate order 
@@ -87,6 +133,49 @@ var avatar = "activate"
    }
    }); 
    
+   
+   // activate kick
+   client.on("message", message => {
+    if (message.content === prefix + "activate kick" && language == "en") {
+     
+       kick = "activate" 
+       message.channel.send("**✅ It's successfully activated.**")     
+       
+
+   }
+   });  
+   
+   client.on("message", message => {
+    if (message.content === prefix + "activate kick" && language == "ar") {
+     
+       kick = "activate" 
+       message.channel.send("**تم تفعيله بنجاح ✅**")     
+       
+
+   }
+   });  
+   
+   
+   // activate ban
+   client.on("message", message => {
+    if (message.content === prefix + "activate ban" && language == "en") {
+     
+       ban = "activate" 
+       message.channel.send("**✅ It's successfully activated.**")     
+       
+
+   }
+   });  
+   
+   client.on("message", message => {
+    if (message.content === prefix + "activate ban" && language == "ar") {
+     
+       ban = "activate" 
+       message.channel.send("**تم تفعيله بنجاح ✅**")     
+       
+
+   }
+   }); 
    
    // mute
    client.commands = new Discord.Collection();
@@ -150,7 +239,7 @@ client.on('message', async message => {
   if (!message.guild) return;
 
   // If the message content starts with "kick"
-  if (message.content.startsWith(prefix + 'kick') && language == "en") {
+  if (message.content.startsWith(prefix + 'kick') && language == "en" && kick == "activate") {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -197,7 +286,7 @@ client.on('message', message => {
   if (!message.guild) return;
 
   // If the message content starts with "kick"
-  if (message.content.startsWith(prefix + 'طرد') && language == "ar") {
+  if (message.content.startsWith(prefix + 'طرد') && language == "ar" && kick == "activate") {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -244,7 +333,7 @@ client.on('message', message => {
   if (!message.guild) return;
 
   // If the message content starts with "kick"
-  if (message.content.startsWith(prefix + 'ban') && language == "en") {
+  if (message.content.startsWith(prefix + 'ban') && language == "en" && ban == "activate") {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
@@ -291,7 +380,7 @@ client.on('message', message => {
   if (!message.guild) return;
 
   // If the message content starts with "kick"
-  if (message.content.startsWith(prefix + 'حظر') && language == "ar") {
+  if (message.content.startsWith(prefix + 'حظر') && language == "ar" && ban == "activate") {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
     const user = message.mentions.users.first();
