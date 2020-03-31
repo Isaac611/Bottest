@@ -438,12 +438,33 @@ client.on("message", message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == prefix + "say") {
+  if (command == "say") {
     if(!message.guild.member(message.author.id).roles.find(role => role.name == saym))
       return;
 
     message.channel.sendMessage(args.join("  "));
     message.delete();
+  }
+});  
+
+
+// setorder
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setsay") {
+    if(!message.guild.member(message.author.id).roles.find(role => role.name == banm))
+      return;
+
+    say = args.join("  ")
+    message.channel.sendMessage("✅It's been a successful.");
+    
   }
 });  
 
