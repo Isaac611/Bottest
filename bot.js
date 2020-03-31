@@ -550,7 +550,7 @@ client.on("message", message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "say") {
-    if(!message.guild.member(message.author.id).roles.find(role => role.name == saym) && say == "activate"|| message.member.hasPermission('ADMINISTRATOR') && say == "activate")
+    if(!message.guild.member(message.author.id).roles.find(role => role.name == saym) && say == "activate" || message.member.hasPermission('ADMINISTRATOR') && say == "activate")
       return;
 
     message.channel.sendMessage(args.join("  "));
