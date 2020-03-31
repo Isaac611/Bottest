@@ -9,7 +9,8 @@ var ban = "activate"
 var kick = "activate" 
 var ban = "activate" 
 var banm = "Management" 
-var kickm = "Management"
+var kickm = "Management" 
+var saym = "Management"
   
   
   // help 
