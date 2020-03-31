@@ -452,7 +452,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-
+        if(language == "en") {
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
@@ -463,8 +463,23 @@ client.on("message", message => {
       return;
 
     saym = args.join("  ")
-    message.channel.sendMessage("✅It's been a successful.");
-    
+    message.channel.sendMessage("✅ done successfully");
+   } 
+   else { 
+          
+          let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setsay") {
+    if(!message.guild.member(message.author.id).roles.find(role => role.name == banm))
+      return;
+
+    saym = args.join("  ")
+    message.channel.sendMessage("تم بنجاح ✅");
+
+         } 
   }
 });  
 
