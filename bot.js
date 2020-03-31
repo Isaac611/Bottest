@@ -462,7 +462,7 @@ client.on("message", message => {
     if(!message.guild.member(message.author.id).roles.find(role => role.name == banm))
       return;
 
-    say = args.join("  ")
+    saym = args.join("  ")
     message.channel.sendMessage("✅It's been a successful.");
     
   }
