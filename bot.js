@@ -145,6 +145,7 @@ client.on('message', async message => {
 
    
    // kick and ban
+   client.on("message", (message) => {
    if (message.content.startsWith(prefix + "kick")) {
 
     if (!message.member.roles.find("name", "Admin"))
