@@ -453,7 +453,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-  if(!message.member.hasPermission('ADMINSTRATOR')) return;
+  if (message.member.hasPermission('ADMINISTRATOR')) return;
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
@@ -472,7 +472,7 @@ client.on("message", message => {
    client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-  if(!message.member.hasPermission('ADMINSTRATOR')) return;
+  if (message.member.hasPermission('ADMINISTRATOR')) return;
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
