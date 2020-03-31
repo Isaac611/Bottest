@@ -461,7 +461,7 @@ client.on("message", message => {
 
   if (command == "setsay" && language == "en") {
     if(!message.member.hasPermission('ADMINISTRATION')) return;
-      return;
+      
 
     saym = args.join("  ")
     message.channel.sendMessage("✅ done successfully");
@@ -481,7 +481,7 @@ client.on("message", message => {
 
   if (command == "setsay" && language == "ar") {
    if(!message.member.hasPermission('ADMINISTRATION')) return;
-      return;
+      
 
     saym = args.join("  ")
     message.channel.sendMessage("تم بنجاح ✅");
