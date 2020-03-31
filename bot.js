@@ -453,7 +453,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-  if (message.member.hasPermission('ADMINISTRATOR')) 
+  if (message.member.hasPermission('ADMINISTRATOR'))  {
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
@@ -464,7 +464,7 @@ client.on("message", message => {
 
     saym = args.join("  ")
     message.channel.sendMessage("✅ done successfully");
-  }
+  }} 
 });  
 
 
@@ -472,7 +472,7 @@ client.on("message", message => {
    client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-  if (message.member.hasPermission('ADMINISTRATOR')) 
+  if (message.member.hasPermission('ADMINISTRATOR')) {
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
@@ -483,7 +483,7 @@ client.on("message", message => {
 
     saym = args.join("  ")
     message.channel.sendMessage("تم بنجاح ✅");
-  }
+  }} 
 });  
    
    
