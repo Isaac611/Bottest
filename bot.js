@@ -460,7 +460,7 @@ client.on("message", message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "setsay" && language == "en") {
-    if(!message.member.hasPermission('ADMINISTRATION')) return;
+    if(!message.member.hasPermission('ADMINSTRATOR')) return;
       
 
     saym = args.join("  ")
@@ -480,7 +480,7 @@ client.on("message", message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "setsay" && language == "ar") {
-   if(!message.member.hasPermission('ADMINISTRATION')) return;
+   if(!message.member.hasPermission('ADMINSTRATOR')) return;
       
 
     saym = args.join("  ")
