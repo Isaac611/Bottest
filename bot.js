@@ -453,15 +453,14 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-    
+  if(!message.member.hasPermission('ADMINSTRATOR')) return;
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
   let args = message.content.split(" ").slice(1);
 
   if (command == "setsay" && language == "en") {
-    if(!message.member.hasPermission('ADMINSTRATOR')) return;
-      
+
 
     saym = args.join("  ")
     message.channel.sendMessage("✅ done successfully");
@@ -473,14 +472,13 @@ client.on("message", message => {
    client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-    
+  if(!message.member.hasPermission('ADMINSTRATOR')) return;
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
   let args = message.content.split(" ").slice(1);
 
   if (command == "setsay" && language == "ar") {
-   if(!message.member.hasPermission('ADMINSTRATOR')) return;
       
 
     saym = args.join("  ")
