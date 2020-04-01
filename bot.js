@@ -777,7 +777,7 @@ client.on('message', function(message) {
     case "clear" :
     message.delete()
     if(!message.channel.guild) return
-    if (message.member.roles.some(role => role.name === clearm || message.member.hasPermission('MANAGE_MESSAGES')){ if (!args[1]) {
+    if (message.member.roles.some(role => role.name === clearm) || message.member.hasPermission('MANAGE_MESSAGES')){ if (!args[1]) {
     message.channel.fetchMessages()
     .then(messages => {
     message.channel.bulkDelete(messages);
@@ -812,7 +812,7 @@ client.on('message', function(message) {
     case "clear" :
     message.delete()
     if(!message.channel.guild) return
-    if(message.member.roles.some(role => role.name === clearm || message.member.hasPermission('MANAGE_MESSAGES')){ if (!args[1]) {
+    if(message.member.roles.some(role => role.name === clearm) || message.member.hasPermission('MANAGE_MESSAGES')){ if (!args[1]) {
     message.channel.fetchMessages()
     .then(messages => {
     message.channel.bulkDelete(messages);
@@ -847,10 +847,9 @@ client.on('message', function(message) {
 client.on("message", message => {
   if (message.content === prefix + "close") {
     if (!message.channel.guild)
-      return message.reply(" هذا الامر فقط للسيرفرات !!");
-
+      return;
     if (!message.member.hasPermission("MANAGE_CHANNELS"))
-      return message.reply(" ليس لديك صلاحيات");
+      return;
     message.channel
       .overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false
