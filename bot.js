@@ -23,7 +23,7 @@ var clear = "activate"
     	
      message.react("✅");
 message.author.sendMessage(`
-bjdhf
+$bjdhf
 `);
    
    }
