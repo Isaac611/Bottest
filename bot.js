@@ -18,7 +18,7 @@ var clear = "activate"
   
   
   // help 
- /* client.on("message", message => {
+  client.on("message", message => {
     if (message.content === "w!help") {
      
 message.author.sendMessage(` 
@@ -44,15 +44,15 @@ __Arabic language __
 `` $activate all`` - يقوم بتفعيل كل الأوامر
 ``$set<name order> [name role ] `` - يقوم بالسماح لرتبة معينة بإستعمال الأمر
 ** مثال ** :
-$setsay Management
-One ``$set`` tow -> ``name order`` -- > say  three - > ``name role`` -- > Management
+$setsay management
+one ``$set`` tow -> ``name order`` -- > say  three - > ``name role`` -- > management
 ───────────────────
-https://discord.gg/7CK89HT`)
+discord.gg/7CK89HT`)
    
    }
    }); 
    
-  */
+  
   
   // setlang ar
   client.on("message", message => {
