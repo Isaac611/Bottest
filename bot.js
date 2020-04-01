@@ -18,9 +18,18 @@ var clear = "activate"
   
   // help 
   client.on("message", message => {
-    if (message.content === "w!help") { 
-    	message.react('✅')
-       .then(() => message.react('✅')) 
+    if (message.content === "w!help") {  
+    	
+    	message.react('🇸🇦')
+       .then(() => message.react('🇸🇦')) 
+       
+       let activeFilter = (reaction, user) => reaction.emoji.name === '🇸🇦' && user.id === message.author.id;
+     
+       let active = msg.createReactionCollector(activeFilter, { time: 15000 });
+       
+       active.on("collect", r => { 
+       	message.channel.send(`hello`);
+       }
      const embed = new Discord.RichEmbed() 
          .setColor("#FFB33F")
          .setThumbnail(message.author.avatarURL)
