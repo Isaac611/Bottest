@@ -22,11 +22,8 @@ var help = "**Technical support server You can ask your questions and learn bot 
   client.on("message", m => {
   if (m.content === prefix + "help") {
     var SUPPORT = "https://discord.gg/7CK89HT";
-    let embed = new Discord.RichEmbed().setTitle(`Help`)
-      .setDescription(`                                                                                                               
-**[** Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت **] 
-**[ Server Support](${SUPPORT})**`);
-    m.channel.send(embed);
+    m.author.send(`**[** Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت **] 
+**[ Server Support](${SUPPORT}) `);
   }
 });
    
