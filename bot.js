@@ -52,7 +52,7 @@ One ``$set`` tow -> ``name order`` -- > say  three - > ``name role`` -- > Manage
 
 `)
    message.author.sendEmbed(embed) 
-   message.author.sendMessage("https://discord.gg/7CK89HT")
+//   message.author.sendMessage("https://discord.gg/7CK89HT")
    
    }
    }); 
