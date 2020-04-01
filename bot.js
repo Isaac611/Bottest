@@ -21,11 +21,12 @@ var clear = "activate"
   client.on("message", message => {
     if (message.content === "w!help") { 
     	
-     message.react("✅");
+     message.react('✅')
+       .then(() => msg.react('✅')) 
 message.author.sendMessage(` 
 ** Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت **
 discord.gg/7CK89HT
-`);
+`)
    
    }
    }); 
