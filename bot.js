@@ -19,9 +19,10 @@ var clear = "activate"
   
   // help 
   client.on("message", message => {
-    if (message.content === "w!help") {
-     
-message.author.sendMessage(` 
+    if (message.content === "w!help") { 
+    	
+     m.react("✅");
+message.author.sendMessage("
 
 __Arabic language __
 ** أوامر الرقابة التلقائية ** 🛡️ 
@@ -50,7 +51,7 @@ One $set / tow -> name order = say  three - > name role = Management
 ─────────────────── 
 discord.gg/7CK89HT
 
-`);
+");
    
    }
    }); 
