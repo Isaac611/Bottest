@@ -11,7 +11,8 @@ var say = "activate"
 var banm = "Management" 
 var kickm = "Management" 
 var saym = "Management" 
-var links = "activate"
+var links = "activate" 
+var clear = "activate"
   
   
   // help 
@@ -104,7 +105,8 @@ var links = "activate"
        ban = "colse" 
        kick = "colse" 
        kick = "colse"  
-       links = "close"
+       links = "close" 
+       clear = "close"
        message.channel.send("**✅ All orders are closed**")     
        
             
@@ -144,6 +146,28 @@ var links = "activate"
     if (message.content === prefix + "close kick" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        kick = "colse" 
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
+       
+            
+   }
+   });  
+   
+   // colse clear 
+   client.on("message", message => {
+    if (message.content === prefix + "close clear" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       clear = "colse" 
+       message.channel.send("**✅ The command was closed.**")     
+       
+            
+   }
+   }); 
+   
+   
+   client.on("message", message => {
+    if (message.content === prefix + "close clear" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       clear = "colse" 
        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
        
             
@@ -223,6 +247,7 @@ var links = "activate"
        kick = "activate" 
        kick = "activate" 
        links = "activate" 
+       clear = "activate"
        message.channel.send("**تم تفعيل كل الأوامر ✅**")     
        
 
@@ -269,6 +294,29 @@ var links = "activate"
     if (message.content === prefix + "activate links" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        links = "activate" 
+       message.channel.send("**تم تفعيله بنجاح ✅**")     
+       
+
+   }
+   });  
+   
+   
+      // activate clear en
+   client.on("message", message => {
+    if (message.content === prefix + "activate clear" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       clear = "activate" 
+       message.channel.send("**✅ It's successfully activated.**")     
+       
+
+   }
+   });   
+   
+   // activate clear ar
+   client.on("message", message => {
+    if (message.content === prefix + "activate clear" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       clear = "activate" 
        message.channel.send("**تم تفعيله بنجاح ✅**")     
        
 
@@ -734,7 +782,8 @@ client.on('message', (message) => { //whenever a message is sent
 // clear message ar
 client.on('message', function(message) {
     if(!message.channel.guild) return;
-    if (message.author.bot) return; 
+    if (message.author.bot) return;  
+    if (clear === "close") return;
     if (language === "en") return;
     if (message.author.id === client.user.id) return;
     if (message.author.equals(client.user)) return;
@@ -762,7 +811,54 @@ client.on('message', function(message) {
     
     }
     }
-    });
+    }); 
+    
+    
+    // clear message en
+client.on('message', function(message) {
+    if(!message.channel.guild) return;
+    if (message.author.bot) return; 
+    if (language === "ar") return; 
+    if (clear === "close") return;
+    if (message.author.id === client.user.id) return;
+    if (message.author.equals(client.user)) return;
+    if (!message.content.startsWith(prefix)) return;
+    
+    var args = message.content.substring(prefix.length).split(' ');
+    switch (args[0].toLocaleLowerCase()) {
+    case "clear" :
+    message.delete()
+    if(!message.channel.guild) return
+    if(message.member.hasPermission(0x2000)){ if (!args[1]) {
+    message.channel.fetchMessages()
+    .then(messages => {
+    message.channel.bulkDelete(messages);
+    var messagesDeleted = messages.array().length;
+    message.channel.sendMessage(' '+ "**```fix\n" + messagesDeleted + " " +  ': Number of messages deleted' + "```**").then(m => m.delete(5000));
+    })
+    } else {
+    let messagecount = parseInt(args[1]);
+    message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+    message.channel.sendMessage(' '+ "**```fix\n" + args[1] + " " +  ': Number of messages deleted' + "```**").then(m => m.delete(5000));
+    message.delete(60000);
+    }
+    } else {
+    
+    }
+    }
+    });  
+    
+    
+    // ping 
+    client.on('message', message => {
+    if (message.author.bot) return;
+    if (!message.content.startsWith(prefix)) return;
+
+    if (message.content.startsWith(prefix + 'ping')) {
+        message.channel.sendMessage('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`');
+    }
+});
+
 
    
 // show avatar users - and show avatar server en 
