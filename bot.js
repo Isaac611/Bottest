@@ -679,7 +679,7 @@ if (message.content.includes('discord.gg/') || message.content.includes('discord
     message.delete() //delete the message
       .then(message.member.send(ms.INVITELINK));
   }
-}});
+}})
 
    
 // show avatar users - and show avatar server en 
