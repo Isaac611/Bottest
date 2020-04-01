@@ -12,7 +12,9 @@ var banm = "Management"
 var kickm = "Management" 
 var saym = "Management" 
 var clearm = "Management" 
+var lockm = "Management" 
 var links = "activate" 
+var lock = "activate"  
 var clear = "activate" 
 var help = "**Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت ** discord.gg/7CK89HT" 
 
@@ -127,6 +129,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
        kick = "colse"  
        links = "close" 
        clear = "close"
+       lock = "close"
        message.channel.send("**✅ All orders are closed**")     
        
             
@@ -142,7 +145,8 @@ var help = "**Technical support server You can ask your questions and learn bot 
        ban = "colse" 
        kick = "colse" 
        kick = "colse" 
-       links = "close"
+       links = "close" 
+       lock = "close"
        message.channel.send("**تم إغلاق كل الأوامر ✅**")     
        
             
@@ -251,6 +255,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
        kick = "activate" 
        kick = "activate" 
        links = "activate"
+       lock = "activate"
        message.channel.send("**✅ All orders are activated**")     
        
 
@@ -268,6 +273,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
        kick = "activate" 
        links = "activate" 
        clear = "activate"
+       lock = "activate"
        message.channel.send("**تم تفعيل كل الأوامر ✅**")     
        
 
