@@ -21,8 +21,7 @@ var clear = "activate"
   client.on("message", message => {
     if (message.content === "w!help") {
      
-message.author.sendMessage(` 
-__Arabic language __
+message.author.sendMessage(` __Arabic language __
 ** أوامر الرقابة التلقائية ** 🛡️ 
 ``$activate links`` - يقوم بمسح أي رابط لخوادم أخرى 
 ``$close links`` - يقوم بإقاف هذة الميزة  ───────────────────
@@ -44,10 +43,13 @@ __Arabic language __
 `` $activate all`` - يقوم بتفعيل كل الأوامر
 ``$set<name order> [name role ] `` - يقوم بالسماح لرتبة معينة بإستعمال الأمر
 ** مثال ** :
-$setsay management
-one ``$set`` tow -> ``name order`` -- > say  three - > ``name role`` -- > management
-───────────────────
-discord.gg/7CK89HT`)
+$setsay Management
+One ``$set`` tow -> ``name order`` -- > say  three - > ``name role`` -- > Management
+─────────────────── 
+discord.gg/7CK89HT
+
+
+`);
    
    }
    }); 
