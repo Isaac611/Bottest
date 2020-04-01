@@ -11,6 +11,7 @@ var say = "activate"
 var banm = "Management" 
 var kickm = "Management" 
 var saym = "Management" 
+var clearm = "Management" 
 var links = "activate" 
 var clear = "activate"
   
@@ -389,62 +390,6 @@ var clear = "activate"
    }
    });  
    
-   // mute
-   client.commands = new Discord.Collection();
-
-client.muted = require('./muted.json');
-
-fs.readdir('./cmds/', (err, files) => {
-    if (err) console.error(err);
-    const jsFiles = files.filter(f => f.split('.').pop() === 'js');
-    if (jsFiles.length <= 0) return console.log('No command files found!');
-    jsFiles.forEach((f, i) => {
-        const props = require(`./cmds/${f}`);
-        console.log(`${i + 1}: ${f} loaded!`);
-        client.commands.set(props.help.name, props);
-    });
-})
-
-client.on('ready', async () => {
-    console.log(`${client.user.username} is ready!`);
-
-    // Every 5 seconds check the "muted.json" file to see when a users mute is up
-    client.setInterval(() => {
-        for (const i in client.muted) {
-            const time = client.muted[i].time;
-            const guildId = client.muted[i].guild;
-            const guild = client.guilds.get(guildId);
-            const member = guild.members.get(i);
-            const mutedRole = guild.roles.find(mR => mR.name === 'Muted');
-            if (!mutedRole) continue;
-
-            if (Date.now() > time) {
-                member.removeRole(mutedRole);
-                delete client.muted[i];
-                fs.writeFile('./muted.json', JSON.stringify(client.muted), err => {
-                    if(err) throw err;
-                });
-            }
-        }
-    }, 5000);
-});
-
-client.on('message', async message => {
-    // Validate that the user can only message the bot within a channel on the server
-    if (message.author.client) return;
-    if (message.channel.type === 'dm') return;
-
-    const messageArray = message.content.split(' ');
-    const command = messageArray[0];
-    const args = messageArray.slice(1);
-
-    if (!command.startsWith(prefix)) return;
-
-    const cmd = client.commands.get(command.slice(prefix.length));
-    if (cmd) cmd.run(client, message, args);
-});
-
-   
    // kick en
    client.on('message', message => {
   // Ignore messages that aren't from a guild
@@ -647,7 +592,7 @@ client.on("message", message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "say" && say == "activate") { // && message.guild.member(message.author.id).roles.find(role => role.name == saym)) && say == "activate" || message.member.hasPermission('ADMINISTRATOR') && say == "activate") {
+  if (command == "say" && say == "activate" && message.guild.member(message.author.id).roles.find(role => role.name == saym) || message.member.hasPermission('ADMINISTRATOR') && say == "activate") {
 
     message.channel.sendMessage(args.join("  "));
     message.delete(); 
@@ -733,6 +678,44 @@ client.on("message", message => {
 });   
 
 
+   // set clear en
+   client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if (message.member.hasPermission('ADMINISTRATOR'))  {
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setclear" && language == "en") {
+
+
+    clearm = args.join("  ")
+    message.channel.sendMessage("✅ done successfully");
+  }} 
+});   
+
+
+// set clear ar 
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if (message.member.hasPermission('ADMINISTRATOR')) {
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setclear" && language == "ar") {
+      
+
+    clearm = args.join("  ")
+    message.channel.sendMessage("تم بنجاح ✅");
+  }} 
+});   
+
+
 // set ban en 
 client.on("message", message => {
   if (message.author.bot) return;
@@ -794,7 +777,7 @@ client.on('message', function(message) {
     case "clear" :
     message.delete()
     if(!message.channel.guild) return
-    if(message.member.hasPermission(0x2000)){ if (!args[1]) {
+    if (message.member.roles.some(role => role.name === clearm || message.member.hasPermission('MANAGE_MESSAGES')){ if (!args[1]) {
     message.channel.fetchMessages()
     .then(messages => {
     message.channel.bulkDelete(messages);
@@ -829,7 +812,7 @@ client.on('message', function(message) {
     case "clear" :
     message.delete()
     if(!message.channel.guild) return
-    if(message.member.hasPermission(0x2000)){ if (!args[1]) {
+    if(message.member.roles.some(role => role.name === clearm || message.member.hasPermission('MANAGE_MESSAGES')){ if (!args[1]) {
     message.channel.fetchMessages()
     .then(messages => {
     message.channel.bulkDelete(messages);
@@ -857,6 +840,39 @@ client.on('message', function(message) {
     if (message.content.startsWith(prefix + 'ping')) {
         message.channel.sendMessage('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`');
     }
+});
+
+
+// close and open chat ar
+client.on("message", message => {
+  if (message.content === prefix + "close") {
+    if (!message.channel.guild)
+      return message.reply(" هذا الامر فقط للسيرفرات !!");
+
+    if (!message.member.hasPermission("MANAGE_CHANNELS"))
+      return message.reply(" ليس لديك صلاحيات");
+    message.channel
+      .overwritePermissions(message.guild.id, {
+        SEND_MESSAGES: false
+      })
+      .then(() => {
+        message.channel.send("تم إغلاق هذة القناة 🔒");
+      });
+  }
+  if (message.content === prefix + "open") {
+    if (!message.channel.guild)
+      return;
+
+    if (!message.member.hasPermission("MANAGE_CHANNELS"))
+      return;
+    message.channel
+      .overwritePermissions(message.guild.id, {
+        SEND_MESSAGES: true
+      })
+      .then(() => {
+        message.channel.send("تم فتح هذة القناة 🔓");
+      });
+  }
 });
 
 
