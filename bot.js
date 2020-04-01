@@ -22,7 +22,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
   client.on("message", m => {
   if (m.content === prefix + "help") {
     var SUPPORT = "https://discord.gg/7CK89HT";
-    m.author.send(`**[** Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت **] 
+    m.message.anthor.send(`**[** Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت **] 
 **[ Server Support](${SUPPORT}) `);
   }
 });
