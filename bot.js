@@ -593,7 +593,9 @@ client.on("message", message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "say") {//. && say == "activate" && message.guild.member(message.author.id).roles.find(role => role.name == saym) || ) {
-  if (!message.guild.member(message.author.id).roles.find(role => role.name == saym) || !message.member.hasPermission('ADMINISTRATOR')) return;
+  if (!message.guild.member(message.author.id).roles.find(role => role.name == saym)) {var s0 = 1}
+  if (!message.member.hasPermission('ADMINISTRATOR')) {s0 = s0 + 1} 
+  if (s0 == 2){ s0 = 0 return; } 
   if (say === "close") return; 
     message.channel.sendMessage(args.join("  "));
     message.delete(); 
