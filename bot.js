@@ -18,7 +18,7 @@ var clear = "activate"
   
   
   // help 
-  client.on("message", message => {
+ /* client.on("message", message => {
     if (message.content === "w!help") {
      
 message.author.sendMessage(` 
@@ -52,7 +52,7 @@ https://discord.gg/7CK89HT`)
    }
    }); 
    
-  
+  */
   
   // setlang ar
   client.on("message", message => {
