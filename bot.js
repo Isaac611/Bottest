@@ -23,7 +23,7 @@ var clear = "activate"
      
 message.author.sendMessage(` 
 
-``test`` - test
+/``test`` - test
 
 `);
    
