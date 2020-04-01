@@ -18,27 +18,45 @@ var clear = "activate"
   
   // help 
   client.on("message", message => {
-    if (message.content === "w!help") {  
-    	
-    	message.react('🇸🇦')
-       .then(() => message.react('🇸🇦')) 
-       
-       let activeFilter = (reaction, user) => reaction.emoji.name === '🇸🇦' && user.id === message.author.id;
-     
-       let active = msg.createReactionCollector(activeFilter, { time: 15000 });
-       
-       active.on("collect", r => { 
-       	message.channel.send(`hello`);
-       }
+    if (message.content === "w!help") {
      const embed = new Discord.RichEmbed() 
          .setColor("#FFB33F")
          .setThumbnail(message.author.avatarURL)
-         .setDescription(`help message`)
+         .setDescription(` 
+
+__Arabic language __
+** أوامر الرقابة التلقائية ** 🛡️ 
+``$activate links`` - يقوم بمسح أي رابط لخوادم أخرى 
+``$close links`` - يقوم بإقاف هذة الميزة  ───────────────────
+** أوامر الإدارة ** ⚔️
+`` $ban [user] `` - يقوم بحظر العضو نهائيا من خادمك
+`` $kick [user] `` - يقوم بركل أو طرد العضو من خادمك
+`` $mute [user] `` - يقوم بكتم أو إسكات العضو
+───────────────────
+** الأوامر العامة ** 👥
+`` $background, $bgd `` - يعرض لك الخلفية الخاصة بك
+``$background server, $bgd server `` - يعرض لك الخلفيه الخاصة بالخادم
+───────────────────
+** إعدادات الأوامر ** ⚙️
+`` $setlang ar `` -  يقوم بتغيير لغة البوت للعربية 
+`` $setlang en `` - يقوم بتغيير لغة البوت للإنجليزية 
+`` $close [name order] `` - يقوم بإغلاق أمر معين حسب الإختيار 
+``$activate [name order] `` - يقوم بتفعيل أمر معين حسب الإختيار
+`` $close all `` - يقوم بإقاف كل الأوامر
+`` $activate all`` - يقوم بتفعيل كل الأوامر
+``$set<name order> [name role ] `` - يقوم بالسماح لرتبة معينة بإستعمال الأمر
+** مثال ** :
+$setsay Management
+One ``$set`` tow -> ``name order`` -- > say  three - > ``name role`` -- > Management
+───────────────────
+
+`)
    message.author.sendEmbed(embed) 
-   message.author.send("")
+   message.author.sendMessage("https://discord.gg/7CK89HT")
    
    }
    }); 
+   
   
   
   // setlang ar
