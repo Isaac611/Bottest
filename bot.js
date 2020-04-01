@@ -14,6 +14,7 @@ var saym = "Management"
 var clearm = "Management" 
 var links = "activate" 
 var clear = "activate" 
+var help = "**Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت ** discord.gg/7CK89HT" 
 
   
   
@@ -23,10 +24,7 @@ var clear = "activate"
     	
      message.react('✅')
        .then(() => message.react('✅')) 
-message.author.send(` 
-** Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت **
-discord.gg/7CK89HT
-`)
+message.author.send(help);
    
    }
    }); 
