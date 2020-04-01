@@ -932,10 +932,10 @@ client.on('message', function(message) {
 
 // close and open chat ar
 client.on("message", message => {
-  if (message.content === prefix + "lock" && lock == "activate") {
+  if (message.content === prefix + "lock" && lock == "activate" && language == "ar") {
     if (!message.channel.guild)
       return;
-    if (!message.member.hasPermission("MANAGE_CHANNELS") || message.member.roles.some(role => role.name === lockm))
+    if (!message.member.hasPermission("MANAGE_CHANNELS") || !message.member.roles.some(role => role.name === lockm))
       return;
     message.channel
       .overwritePermissions(message.guild.id, {
@@ -945,11 +945,11 @@ client.on("message", message => {
         message.channel.send("تم إغلاق هذة القناة 🔒");
       });
   }
-  if (message.content === prefix + "unlock") {
+  if (message.content === prefix + "unlock" && lock == "activate" && language == "ar") {
     if (!message.channel.guild)
       return;
 
-    if (!message.member.hasPermission("MANAGE_CHANNELS"))
+    if (!message.member.hasPermission("MANAGE_CHANNELS") || !message.member.roles.some(role => role.name === lockm))
       return;
     message.channel
       .overwritePermissions(message.guild.id, {
@@ -964,10 +964,10 @@ client.on("message", message => {
 
 // close and open chat en
 client.on("message", message => {
-  if (message.content === prefix + "lock" && lock == "activate") {
+  if (message.content === prefix + "lock" && lock == "activate" && language == "en") {
     if (!message.channel.guild)
       return;
-    if (!message.member.hasPermission("MANAGE_CHANNELS") || message.member.roles.some(role => role.name === lockm))
+    if (!message.member.hasPermission("MANAGE_CHANNELS") || !message.member.roles.some(role => role.name === lockm))
       return;
     message.channel
       .overwritePermissions(message.guild.id, {
@@ -977,11 +977,11 @@ client.on("message", message => {
         message.channel.send("🔒 This channel has been closed");
       });
   }
-  if (message.content === prefix + "unlock") {
+  if (message.content === prefix + "unlock" && lock == "activate" && language == "en") {
     if (!message.channel.guild)
       return;
 
-    if (!message.member.hasPermission("MANAGE_CHANNELS"))
+    if (!message.member.hasPermission("MANAGE_CHANNELS") || !message.member.roles.some(role => role.name === lockm))
       return;
     message.channel
       .overwritePermissions(message.guild.id, {
