@@ -673,13 +673,12 @@ client.on("message", message => {
 
 
 // delete links 
-client.on("message",message => {
-if (message.content.includes('discord.gg/') || message.content.includes('discordapp.com/invite/')) { //if it contains an invite link
-  if (!message.member.hasPermission("KICK_MEMBERS")) {
+client.on('message', (message) => { //whenever a message is sent
+  if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { //if it contains an invite link
     message.delete() //delete the message
-      .then(message.member.send(ms.INVITELINK));
+      .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
   }
-}})
+})
 
    
 // show avatar users - and show avatar server en 
