@@ -10,7 +10,8 @@ var kick = "activate"
 var say = "activate" 
 var banm = "Management" 
 var kickm = "Management" 
-var saym = "Management"
+var saym = "Management" 
+var links = "activate"
   
   
   // help 
@@ -48,9 +49,9 @@ var saym = "Management"
    }); 
    
    
-   // colse avatar
+   // colse bgd
    client.on("message", message => {
-    if (message.content === prefix + "close avatar" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
+    if (message.content === prefix + "close bgd" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "colse" 
        message.channel.send("**✅ The order was successfully cancelled.**")     
@@ -61,7 +62,7 @@ var saym = "Management"
    
    
    client.on("message", message => {
-    if (message.content === prefix + "close avatar" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
+    if (message.content === prefix + "close bgd" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "colse" 
        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
@@ -70,6 +71,28 @@ var saym = "Management"
    }
    }); 
    
+   
+      // colse links
+   client.on("message", message => {
+    if (message.content === prefix + "close links" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       links = "colse" 
+       message.channel.send("**✅ The order was successfully cancelled.**")     
+       
+            
+   }
+   }); 
+   
+   
+   client.on("message", message => {
+    if (message.content === prefix + "close links" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       links = "colse" 
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
+       
+            
+   }
+   });  
    
    
    // close all order en
@@ -203,9 +226,9 @@ var saym = "Management"
    }); 
    
    
-   // Activate order 
+   // bgd order 
    client.on("message", message => {
-    if (message.content === prefix + "activate avatar" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
+    if (message.content === prefix + "activate bgd" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "activate" 
        message.channel.send("**✅ It's successfully activated.**")     
@@ -216,7 +239,7 @@ var saym = "Management"
    
    
    client.on("message", message => {
-    if (message.content === prefix + "activate avatar" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
+    if (message.content === prefix + "activate bgd" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "activate" 
        message.channel.send("**تم تفعيله بنجاح ✅**")     
@@ -224,6 +247,29 @@ var saym = "Management"
 
    }
    }); 
+   
+   
+   // activate links en
+   client.on("message", message => {
+    if (message.content === prefix + "activate links" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       links = "activate" 
+       message.channel.send("**✅ It's successfully activated.**")     
+       
+
+   }
+   });   
+   
+   // activate links ar
+   client.on("message", message => {
+    if (message.content === prefix + "activate links" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       links = "activate" 
+       message.channel.send("**تم تفعيله بنجاح ✅**")     
+       
+
+   }
+   });  
    
    
    // activate kick
@@ -674,7 +720,7 @@ client.on("message", message => {
 
 // delete links 
 client.on('message', (message) => { //whenever a message is sent
-  if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { //if it contains an invite link
+  if (message.content.includes('discord.gg/'||'discordapp.com/invite/') && links == "activate") { //if it contains an invite link
     message.delete() //delete the message
    //   .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
   }
