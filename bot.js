@@ -26,8 +26,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
       .setDescription(`                                                                                                               
 **[** Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت **] 
 **[ Server Support](${SUPPORT})**`);
-    m.react("✅");
-    m.author.send(embed);
+    m.channel.send(embed);
   }
 });
    
