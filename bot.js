@@ -21,9 +21,9 @@ var clear = "activate"
   client.on("message", message => {
     if (message.content === "w!help") { 
     	
-     m.react("✅");
+     message.react("✅");
 message.author.sendMessage(`
-$bjdhf
+bjdhf
 `);
    
    }
