@@ -103,7 +103,8 @@ var links = "activate"
        say = "colse" 
        ban = "colse" 
        kick = "colse" 
-       kick = "colse" 
+       kick = "colse"  
+       links = "close"
        message.channel.send("**✅ All orders are closed**")     
        
             
@@ -119,6 +120,7 @@ var links = "activate"
        ban = "colse" 
        kick = "colse" 
        kick = "colse" 
+       links = "close"
        message.channel.send("**تم إغلاق كل الأوامر ✅**")     
        
             
@@ -204,6 +206,7 @@ var links = "activate"
        ban = "activate" 
        kick = "activate" 
        kick = "activate" 
+       links = "activate"
        message.channel.send("**✅ All orders are activated**")     
        
 
@@ -219,6 +222,7 @@ var links = "activate"
        ban = "activate" 
        kick = "activate" 
        kick = "activate" 
+       links = "activate" 
        message.channel.send("**تم تفعيل كل الأوامر ✅**")     
        
 
@@ -724,7 +728,40 @@ client.on('message', (message) => { //whenever a message is sent
     message.delete() //delete the message
    //   .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
   }
-})
+}) 
+
+
+// clear message
+client.on('message', function(message) {
+    if(!message.channel.guild) return;
+    if (message.author.bot) return;
+    if (message.author.id === client.user.id) return;
+    if (message.author.equals(client.user)) return;
+    if (!message.content.startsWith(prefix)) return;
+    
+    var args = message.content.substring(prefix.length).split(' ');
+    switch (args[0].toLocaleLowerCase()) {
+    case "clear" :
+    message.delete()
+    if(!message.channel.guild) return
+    if(message.member.hasPermission(0x2000)){ if (!args[1]) {
+    message.channel.fetchMessages()
+    .then(messages => {
+    message.channel.bulkDelete(messages);
+    var messagesDeleted = messages.array().length;
+    message.channel.sendMessage(' '+ "**```fix\n" + messagesDeleted + " " +  ': عدد الرسائل التي تم مسحها' + "```**").then(m => m.delete(5000));
+    })
+    } else {
+    let messagecount = parseInt(args[1]);
+    message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+    message.channel.sendMessage(' '+ "**```fix\n" + args[1] + " " +  ': عدد الرسائل التي تم مسحها' + "```**").then(m => m.delete(5000));
+    message.delete(60000);
+    }
+    } else {
+    
+    }
+    }
+    });
 
    
 // show avatar users - and show avatar server en 
