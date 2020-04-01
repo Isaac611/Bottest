@@ -592,7 +592,7 @@ client.on("message", message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "say" && say == "activate" && message.guild.member(message.author.id).roles.find(role => role.name == saym) || message.member.hasPermission('ADMINISTRATOR') && say == "activate") {
+  if (command == "say") {//. && say == "activate" && message.guild.member(message.author.id).roles.find(role => role.name == saym) || message.member.hasPermission('ADMINISTRATOR') && say == "activate") {
 
     message.channel.sendMessage(args.join("  "));
     message.delete(); 
@@ -978,4 +978,3 @@ client.user.setGame(`w!help`)
 
 
 client.login(process.env.TOKEN);
- 
