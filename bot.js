@@ -594,7 +594,7 @@ client.on("message", message => {
 
   if (command == "say") {//. && say == "activate" && message.guild.member(message.author.id).roles.find(role => role.name == saym) || ) {
   if (!message.guild.member(message.author.id).roles.find(role => role.name == saym) || !message.member.hasPermission('ADMINISTRATOR')) return;
-  if (say == "close") return; 
+  if (say === "close") return; 
     message.channel.sendMessage(args.join("  "));
     message.delete(); 
   
