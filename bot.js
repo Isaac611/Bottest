@@ -14,7 +14,15 @@ var saym = "Management"
 var clearm = "Management" 
 var links = "activate" 
 var clear = "activate" 
-var help = "__Arabic language __
+
+  
+  
+  // help 
+  client.on("message", message => {
+    if (message.content === "w!help") {
+     
+message.author.sendMessage(` 
+__Arabic language __
 ** أوامر الرقابة التلقائية ** 🛡️ 
 ``$activate links`` - يقوم بمسح أي رابط لخوادم أخرى 
 ``$close links`` - يقوم بإقاف هذة الميزة  ───────────────────
@@ -38,18 +46,8 @@ var help = "__Arabic language __
 ** مثال ** :
 $setsay Management
 One ``$set`` tow -> ``name order`` -- > say  three - > ``name role`` -- > Management
-───────────────────" 
-  
-  
-  // help 
-  client.on("message", message => {
-    if (message.content === "w!help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#FFB33F")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(help)
-   message.author.sendEmbed(embed) 
-//   message.author.sendMessage("https://discord.gg/7CK89HT")
+───────────────────
+https://discord.gg/7CK89HT`)
    
    }
    }); 
