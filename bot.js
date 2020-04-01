@@ -735,7 +735,7 @@ client.on('message', (message) => { //whenever a message is sent
 client.on('message', function(message) {
     if(!message.channel.guild) return;
     if (message.author.bot) return; 
-    if (!language == "en") return;
+    if (language === "en") return;
     if (message.author.id === client.user.id) return;
     if (message.author.equals(client.user)) return;
     if (!message.content.startsWith(prefix)) return;
