@@ -18,14 +18,14 @@ var help = "**Technical support server You can ask your questions and learn bot 
 
   
   
-  // help 
+        /* help 
   client.on("message", m => {
   if (m.content === prefix + "help") {
     var SUPPORT = "https://discord.gg/7CK89HT";
     m.author.send(SUPPORT);
   }
 });
-   
+   */
   
   
   // setlang ar
@@ -46,6 +46,29 @@ var help = "**Technical support server You can ask your questions and learn bot 
    }
    }); 
    
+   
+   
+   // colse lock en
+   client.on("message", message => {
+    if (message.content === prefix + "close lock" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       lock = "colse" 
+       message.channel.send("**✅ The order was successfully cancelled.**")     
+       
+            
+   }
+   }); 
+   
+   // colse lock ar
+   client.on("message", message => {
+    if (message.content === prefix + "close lock" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       lock = "colse" 
+       message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
+       
+            
+   }
+   }); 
    
    // colse bgd
    client.on("message", message => {
@@ -386,6 +409,29 @@ var help = "**Technical support server You can ask your questions and learn bot 
    }
    });  
    
+   
+   // activate lock en
+   client.on("message", message => {
+    if (message.content === prefix + "activate lock" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       lock = "activate" 
+       message.channel.send("**✅ It's successfully activated.**")     
+       
+
+   }
+   });   
+   
+   // activate lock  ar
+   client.on("message", message => {
+    if (message.content === prefix + "activate lock" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
+     
+       lock = "activate" 
+       message.channel.send("**تم تفعيله بنجاح ✅**")     
+       
+
+   }
+   });  
+   
    // kick en
    client.on('message', message => {
   // Ignore messages that aren't from a guild
@@ -440,7 +486,7 @@ client.on('message', message => {
   if (!message.guild) return;
 
   // If the message content starts with "kick"
-  if (message.content.startsWith(prefix + 'طرد') && language == "ar" && kick == "activate") { 
+  if (message.content.startsWith(prefix + 'kick') && language == "ar" && kick == "activate") { 
   	  	if (message.member.roles.some(role => role.name === kickm) || message.member.hasPermission('KICK_MEMBERS')) {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
@@ -536,7 +582,7 @@ client.on('message', message => {
   if (!message.guild) return; 
 
   // If the message content starts with "kick"
-  if (message.content.startsWith(prefix + 'حظر') && language == "ar" && ban == "activate") { 
+  if (message.content.startsWith(prefix + 'ban') && language == "ar" && ban == "activate") { 
   	if (message.member.roles.some(role => role.name === banm || message.member.hasPermission('BAN_MEMBERS'))) {
     // Assuming we mention someone in the message, this will return the user
     // Read more about mentions over at https://discord.js.org/#/docs/main/master/class/MessageMentions
@@ -632,6 +678,44 @@ client.on("message", message => {
       
 
     saym = args.join("  ")
+    message.channel.sendMessage("تم بنجاح ✅");
+  }} 
+});  
+   
+   
+   // setlock en
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if (message.member.hasPermission('ADMINISTRATOR'))  {
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setlock" && language == "en") {
+
+
+    lockm = args.join("  ")
+    message.channel.sendMessage("✅ done successfully");
+  }} 
+});  
+
+
+// setlock ar
+   client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if (message.member.hasPermission('ADMINISTRATOR')) {
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "setlock" && language == "ar") {
+      
+
+    lockm = args.join("  ")
     message.channel.sendMessage("تم بنجاح ✅");
   }} 
 });  
@@ -842,10 +926,10 @@ client.on('message', function(message) {
 
 // close and open chat ar
 client.on("message", message => {
-  if (message.content === prefix + "close") {
+  if (message.content === prefix + "lock" && lock == "activate") {
     if (!message.channel.guild)
       return;
-    if (!message.member.hasPermission("MANAGE_CHANNELS"))
+    if (!message.member.hasPermission("MANAGE_CHANNELS") || message.member.roles.some(role => role.name === lockm))
       return;
     message.channel
       .overwritePermissions(message.guild.id, {
@@ -855,7 +939,7 @@ client.on("message", message => {
         message.channel.send("تم إغلاق هذة القناة 🔒");
       });
   }
-  if (message.content === prefix + "open") {
+  if (message.content === prefix + "unlock") {
     if (!message.channel.guild)
       return;
 
@@ -867,6 +951,38 @@ client.on("message", message => {
       })
       .then(() => {
         message.channel.send("تم فتح هذة القناة 🔓");
+      });
+  }
+});
+
+
+// close and open chat en
+client.on("message", message => {
+  if (message.content === prefix + "lock" && lock == "activate") {
+    if (!message.channel.guild)
+      return;
+    if (!message.member.hasPermission("MANAGE_CHANNELS") || message.member.roles.some(role => role.name === lockm))
+      return;
+    message.channel
+      .overwritePermissions(message.guild.id, {
+        SEND_MESSAGES: false
+      })
+      .then(() => {
+        message.channel.send("🔒 This channel has been closed");
+      });
+  }
+  if (message.content === prefix + "unlock") {
+    if (!message.channel.guild)
+      return;
+
+    if (!message.member.hasPermission("MANAGE_CHANNELS"))
+      return;
+    message.channel
+      .overwritePermissions(message.guild.id, {
+        SEND_MESSAGES: true
+      })
+      .then(() => {
+        message.channel.send("🔓 This channel has been opened ");
       });
   }
 });
@@ -941,7 +1057,7 @@ let embed = new Discord.RichEmbed()
 client.on("message", message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
-  if(message.content.startsWith(prefix + "خلفية السيرفر") && language == "ar" && avatar == "activate" || message.content.startsWith(prefix + "خلفيه السيرفر") && language == "ar" && avatar == "activate") {
+  if(message.content.startsWith(prefix + "background server") && language == "ar" && avatar == "activate" || message.content.startsWith(prefix + "bgd server") && language == "ar" && avatar == "activate") {
     let doma = new Discord.RichEmbed()
     .setColor("#FFB33F")
     .setAuthor(message.guild.name, message.guild.iconURL)
@@ -950,7 +1066,7 @@ client.on("message", message => {
     .setImage(message.guild.iconURL)
  //    .setFooter(`Requested By ${message.author.tag}`, message.author.avatarURL)
     message.channel.send(doma)
-  } else if(message.content.startsWith(prefix + "خلفية") && language == "ar" && avatar == "activate" || message.content.startsWith(prefix + "خلفيه") && language == "ar" && avatar == "activate") {
+  } else if(message.content.startsWith(prefix + "background") && language == "ar" && avatar == "activate" || message.content.startsWith(prefix + "bgd") && language == "ar" && avatar == "activate") {
     let args = message.content.split(" ")[1]
 var avt = args || message.author.id;    
     client.fetchUser(avt).then(user => {
