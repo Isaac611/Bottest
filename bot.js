@@ -31,7 +31,7 @@ var saym = "Management"
   
   // setlang ar
   client.on("message", message => {
-    if (message.content === prefix + "setlang ar") {
+    if (message.content === prefix + "setlang ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        language = "ar" 
        message.channel.send("**تم تغيير اللغة إلى العربية ✅**")     
@@ -40,7 +40,7 @@ var saym = "Management"
    
      // setlang en
   client.on("message", message => {
-    if (message.content === prefix + "setlang en") {
+    if (message.content === prefix + "setlang en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        language = "en" 
        message.channel.send("**✅ The language has been changed to English**")     
@@ -50,7 +50,7 @@ var saym = "Management"
    
    // colse avatar
    client.on("message", message => {
-    if (message.content === prefix + "close avatar" && language == "en") {
+    if (message.content === prefix + "close avatar" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "colse" 
        message.channel.send("**✅ The order was successfully cancelled.**")     
@@ -61,7 +61,7 @@ var saym = "Management"
    
    
    client.on("message", message => {
-    if (message.content === prefix + "close avatar" && language == "ar") {
+    if (message.content === prefix + "close avatar" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "colse" 
        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
@@ -74,7 +74,7 @@ var saym = "Management"
    
    // close all order en
    client.on("message", message => {
-    if (message.content === prefix + "close all" && language == "en") {
+    if (message.content === prefix + "close all" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "colse" 
        say = "colse" 
@@ -89,7 +89,7 @@ var saym = "Management"
    
     // close all order ar
    client.on("message", message => {
-    if (message.content === prefix + "close all" && language == "ar") {
+    if (message.content === prefix + "close all" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "colse" 
        say = "colse" 
@@ -105,7 +105,7 @@ var saym = "Management"
    
    // colse kick
    client.on("message", message => {
-    if (message.content === prefix + "close kick" && language == "en") {
+    if (message.content === prefix + "close kick" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        kick = "colse" 
        message.channel.send("**✅ The command was closed.**")     
@@ -116,7 +116,7 @@ var saym = "Management"
    
    
    client.on("message", message => {
-    if (message.content === prefix + "close kick" && language == "ar") {
+    if (message.content === prefix + "close kick" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        kick = "colse" 
        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
@@ -127,7 +127,7 @@ var saym = "Management"
    
    // colse ban
    client.on("message", message => {
-    if (message.content === prefix + "close ban" && language == "en") {
+    if (message.content === prefix + "close ban" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        ban = "colse" 
        message.channel.send("**✅ The command was closed.**")     
@@ -138,7 +138,7 @@ var saym = "Management"
    
    
    client.on("message", message => {
-    if (message.content === prefix + "close ban" && language == "ar") {
+    if (message.content === prefix + "close ban" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        ban = "colse" 
        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
@@ -150,7 +150,7 @@ var saym = "Management"
    
    // colse say en
    client.on("message", message => {
-    if (message.content === prefix + "close say" && language == "en") {
+    if (message.content === prefix + "close say" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        say = "colse" 
        message.channel.send("**✅ The command was closed.**")     
@@ -162,7 +162,7 @@ var saym = "Management"
    
    // close say ar
    client.on("message", message => {
-    if (message.content === prefix + "close say" && language == "ar") {
+    if (message.content === prefix + "close say" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        say = "colse" 
        message.channel.send("**تم إيقاف الأمر بنجاح ✅**")     
@@ -174,7 +174,7 @@ var saym = "Management"
    
    // Activate all order en
    client.on("message", message => {
-    if (message.content === prefix + "activate all" && language == "en") {
+    if (message.content === prefix + "activate all" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "activate" 
        say = "activate" 
@@ -189,7 +189,7 @@ var saym = "Management"
    
       // Activate all order ar
    client.on("message", message => {
-    if (message.content === prefix + "activate all" && language == "ar") {
+    if (message.content === prefix + "activate all" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "activate" 
        say = "activate" 
@@ -205,7 +205,7 @@ var saym = "Management"
    
    // Activate order 
    client.on("message", message => {
-    if (message.content === prefix + "activate avatar" && language == "en") {
+    if (message.content === prefix + "activate avatar" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "activate" 
        message.channel.send("**✅ It's successfully activated.**")     
@@ -216,7 +216,7 @@ var saym = "Management"
    
    
    client.on("message", message => {
-    if (message.content === prefix + "activate avatar" && language == "ar") {
+    if (message.content === prefix + "activate avatar" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        avatar = "activate" 
        message.channel.send("**تم تفعيله بنجاح ✅**")     
@@ -228,7 +228,7 @@ var saym = "Management"
    
    // activate kick
    client.on("message", message => {
-    if (message.content === prefix + "activate kick" && language == "en") {
+    if (message.content === prefix + "activate kick" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        kick = "activate" 
        message.channel.send("**✅ It's successfully activated.**")     
@@ -238,7 +238,7 @@ var saym = "Management"
    });  
    
    client.on("message", message => {
-    if (message.content === prefix + "activate kick" && language == "ar") {
+    if (message.content === prefix + "activate kick" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        kick = "activate" 
        message.channel.send("**تم تفعيله بنجاح ✅**")     
@@ -250,7 +250,7 @@ var saym = "Management"
    
    // activate ban
    client.on("message", message => {
-    if (message.content === prefix + "activate ban" && language == "en") {
+    if (message.content === prefix + "activate ban" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        ban = "activate" 
        message.channel.send("**✅ It's successfully activated.**")     
@@ -260,7 +260,7 @@ var saym = "Management"
    });  
    
    client.on("message", message => {
-    if (message.content === prefix + "activate ban" && language == "ar") {
+    if (message.content === prefix + "activate ban" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        ban = "activate" 
        message.channel.send("**تم تفعيله بنجاح ✅**")     
@@ -271,7 +271,7 @@ var saym = "Management"
    
    // activate say en
    client.on("message", message => {
-    if (message.content === prefix + "activate say" && language == "en") {
+    if (message.content === prefix + "activate say" && language == "en" && message.member.hasPermission('ADMINISTRATOR')) {
      
        say = "activate" 
        message.channel.send("**✅ It's successfully activated.**")     
@@ -282,7 +282,7 @@ var saym = "Management"
    
    // activate say ar
    client.on("message", message => {
-    if (message.content === prefix + "activate say" && language == "ar") {
+    if (message.content === prefix + "activate say" && language == "ar" && message.member.hasPermission('ADMINISTRATOR')) {
      
        say = "activate" 
        message.channel.send("**تم تفعيله بنجاح ✅**")     
@@ -676,7 +676,7 @@ client.on("message", message => {
 client.on('message', (message) => { //whenever a message is sent
   if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { //if it contains an invite link
     message.delete() //delete the message
-      .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
+   //   .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
   }
 })
 
