@@ -19,15 +19,17 @@ var help = "**Technical support server You can ask your questions and learn bot 
   
   
   // help 
-  client.on("message", message => {
-    if (message.content === "w!help") { 
-    	
-     message.react('✅')
-       .then(() => message.react('✅')) 
-message.author.send(help);
-   
-   }
-   }); 
+  client.on("message", m => {
+  if (m.content === prefix + "help") {
+    var SUPPORT = "https://discord.gg/7CK89HT";
+    let embed = new Discord.RichEmbed().setTitle(`Help`)
+      .setDescription(`                                                                                                               
+**[** Technical support server You can ask your questions and learn bot orders || خادم الدعم الفني يمكنك طرح أسئلتك وتعلم أوامر الروبوت **] 
+**[ Server Support](${SUPPORT})**`);
+    m.react("✅");
+    m.author.send(embed);
+  }
+});
    
   
   
@@ -973,7 +975,7 @@ var avt = args || message.author.id;
     
 // set game for bot
 client.on('ready', () => {
-client.user.setGame(`w!help`)
+client.user.setGame(`$help`)
 });
 
 
