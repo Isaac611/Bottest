@@ -20,14 +20,85 @@ var help = "**Technical support server You can ask your questions and learn bot 
 
   
   
-        /* help 
+        // help ar
   client.on("message", m => {
-  if (m.content === prefix + "help") {
-    var SUPPORT = "https://discord.gg/7CK89HT";
-    m.author.send(SUPPORT);
+  if (m.content === prefix + "help" && language == "ar") {
+    const embed = new Discord.RichEmbed() 
+         .setColor("#FFB33F")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`** تحديد لغة البوت ** 🗨️ 
+``$setlang en`` - لإختيار اللغة الانجليزية 
+``$setlang ar`` - لإختيار اللغة العربية 
+───────────────────  
+** أوامر الرقابة التلقائية ** 🛡️ 
+``$activate links`` - يقوم بتفعيل ميزة مسح روابط الخوادم اذا تم إرسالها في خادمك
+``$close links`` - يقوم بإقاف هذة الميزة  ───────────────────
+** أوامر الإدارة ** ⚔️
+`` $ban @user `` - يقوم بحظر العضو نهائيا من خادمك
+`` $kick @user `` - يقوم بركل أو طرد العضو من خادمك
+`` $clear [number] `` - يقوم بمسح الرسائل 
+`` $lock  `` - يقوم بإغلاق القناة او الروم 
+`` $unlock`` - يقوم بفتح القناة أو الروم
+───────────────────
+** الأوامر العامة ** 👥
+`` $background, $bgd `` - يعرض لك الخلفية الخاصة بك
+``$background server, $bgd server `` - يعرض لك الخلفيه الخاصة بالخادم 
+``$ping `` - [ping] يعرض لك سرعة 
+─────────────────── 
+** إعدادات الأوامر ** ⚙️
+`` $close [name order] `` - يقوم بإغلاق أمر معين حسب الإختيار 
+``$activate [name order] `` - يقوم بتفعيل أمر معين حسب الإختيار
+`` $close all `` - يقوم بإقاف كل الأوامر
+`` $activate all`` - يقوم بتفعيل كل الأوامر
+``$set<name order> [name role] `` - يقوم بالسماح لرتبة معينة بإستعمال الأمر
+** مثال ** :
+``$setsay Management``
+One ``$set`` tow --> ``name order`` = say  three --> ``name role`` = Management
+───────────────────`)
+   message.channel.sendEmbed(embed)
+  }
+}); 
+
+
+// help en
+client.on("message", m => {
+  if (m.content === prefix + "help" && language == "ar") {
+    const embed = new Discord.RichEmbed() 
+         .setColor("#FFB33F")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`** Define the bot language ** 🗨️ 
+``$setlang en`` - To choose the English language
+``$setlang ar`` - To choose the Arabic language
+───────────────────  
+** Automatic control orders ** 🛡️ 
+``$activate links`` - Enables the servers links delete feature if it is done on your server
+``$close links`` - It disables this feature ───────────────────
+** Management orders ** ⚔️
+`` $ban @user `` - Banned the member from your server 
+`` $kick @user `` - Kicks the member from your server
+`` $clear [number] `` - Clears messages
+`` $lock  `` - It closes the channel 
+`` $unlock`` - It opens the channel 
+───────────────────
+** General orders ** 👥
+`` $background, $bgd `` - Show you your background
+``$background server, $bgd server `` -  Shows you the server background
+``$ping `` - Shows you speed [ping] 
+─────────────────── 
+** Command settings ** ⚙️
+`` $close [name order] `` - Close a specific order as per his choice
+``$activate [name order] `` - Activate a specific order as per his choice
+`` $close all `` - It close all orders
+`` $activate all`` - It activate all orders
+``$set<name order> [name role] `` - Allow a specific rank to use the command
+** Example ** :
+``$setsay Management``
+One ``$set`` tow --> ``name order`` = say  three --> ``name role`` = Management
+───────────────────`)
+   message.channel.sendEmbed(embed)
   }
 });
-   */
+   
   
   
   // setlang ar
