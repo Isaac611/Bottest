@@ -24,9 +24,8 @@ var help = "**Technical support server You can ask your questions and learn bot 
   client.on("message", message => {
     if (message.content === prefix + "help") {
      
-       links = "close"
        message.channel.send("** SUPPORT SERVER ** https://discord.gg/7CK89HT")     
-       links = "activate"
+       
    }
    }); 
   
@@ -841,8 +840,9 @@ client.on("message", message => {
 
 
 // delete links 
-client.on('message', (message) => { //whenever a message is sent
+client.on('message', (message) => { //whenever a message is sent 
   if (message.content.includes('discord.gg/'||'discordapp.com/invite/') && links == "activate") { //if it contains an invite link
+if (message.author.bot) return;  
     message.delete() //delete the message
    //   .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
   }
