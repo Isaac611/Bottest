@@ -20,23 +20,23 @@ var help = "**Technical support server You can ask your questions and learn bot 
 
   
   
-        // help ar
-  client.on("message", m => {
-  if (m.content === prefix + "help" && language == "ar") {
-
-m.channel.send("https://discord.gg/7CK89HT")
-  }
-}); 
-
-
-// help en
-client.on("message", m => {
-  if (m.content === prefix + "help" && language == "ar") {
+          // help ar
+  client.on("message", message => {
+    if (message.content === prefix + "help" && language = "ar") {
+     
+       
+       message.channel.send("**https://discord.gg/7CK89HT**")     
+   }
+   }); 
   
-   m.channel.send("https://discord.gg/7CK89HT")
-  }
-});
-   
+  // help en
+  client.on("message", message => {
+    if (message.content === prefix + "help" && language = "en") {
+     
+       
+       message.channel.send("**https://discord.gg/7CK89HT**")     
+   }
+   }); 
   
   
   // setlang ar
