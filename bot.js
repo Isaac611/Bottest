@@ -23,11 +23,8 @@ var help = "**Technical support server You can ask your questions and learn bot 
         // help ar
   client.on("message", m => {
   if (m.content === prefix + "help" && language == "ar") {
-    let embed = new Discord.RichEmbed()
-         .setColor("#FFB33F")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`discord.gg/7CK89HT`)
- m.channel.send({ embed });
+
+m.channel.send("https://discord.gg/7CK89HT")
   }
 }); 
 
@@ -35,11 +32,8 @@ var help = "**Technical support server You can ask your questions and learn bot 
 // help en
 client.on("message", m => {
   if (m.content === prefix + "help" && language == "ar") {
-    let embed = new Discord.RichEmbed()
-         .setColor("#FFB33F")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`discord.gg/7CK89HT`)
-   m.channel.send({ embed });
+  
+   m.channel.send("https://discord.gg/7CK89HT")
   }
 });
    
