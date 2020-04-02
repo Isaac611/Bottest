@@ -55,7 +55,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
 ``$setsay Management``
 One ``$set`` tow --> ``name order`` = say  three --> ``name role`` = Management
 ───────────────────`)
- m.channel.send(embed);
+ m.channel.send({ embed });
   }
 }); 
 
@@ -95,7 +95,7 @@ client.on("message", m => {
 ``$setsay Management``
 One ``$set`` tow --> ``name order`` = say  three --> ``name role`` = Management
 ───────────────────`)
-   m.channel.send(embed);
+   m.channel.send({ embed });
   }
 });
    
