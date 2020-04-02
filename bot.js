@@ -23,7 +23,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
         // help ar
   client.on("message", m => {
   if (m.content === prefix + "help" && language == "ar") {
-    const embed = new Discord.MessageEmbed()
+    let embed = new Discord.RichEmbed()
          .setColor("#FFB33F")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`** تحديد لغة البوت ** 🗨️ 
@@ -55,7 +55,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
 ``$setsay Management``
 One ``$set`` tow --> ``name order`` = say  three --> ``name role`` = Management
 ───────────────────`)
-  channel.send(embed)
+ m.channel.send(embed);
   }
 }); 
 
@@ -63,7 +63,7 @@ One ``$set`` tow --> ``name order`` = say  three --> ``name role`` = Management
 // help en
 client.on("message", m => {
   if (m.content === prefix + "help" && language == "ar") {
-    const embed = new Discord.MessageEmbed()
+    let embed = new Discord.RichEmbed()
          .setColor("#FFB33F")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`** Define the bot language ** 🗨️ 
@@ -95,7 +95,7 @@ client.on("message", m => {
 ``$setsay Management``
 One ``$set`` tow --> ``name order`` = say  three --> ``name role`` = Management
 ───────────────────`)
-   channel.send(embed)
+   m.channel.send(embed);
   }
 });
    
