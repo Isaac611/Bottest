@@ -23,7 +23,7 @@ var help = "**Technical support server You can ask your questions and learn bot 
         // help ar
   client.on("message", m => {
   if (m.content === prefix + "help" && language == "ar") {
-    const embed = new Discord.RichEmbed() 
+    const embed = new Discord.MessageEmbed()
          .setColor("#FFB33F")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`** تحديد لغة البوت ** 🗨️ 
@@ -63,7 +63,7 @@ One ``$set`` tow --> ``name order`` = say  three --> ``name role`` = Management
 // help en
 client.on("message", m => {
   if (m.content === prefix + "help" && language == "ar") {
-    const embed = new Discord.RichEmbed() 
+    const embed = new Discord.MessageEmbed()
          .setColor("#FFB33F")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`** Define the bot language ** 🗨️ 
